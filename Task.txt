@@ -1,0 +1,63 @@
+Projekt podsumowujący  FootballApp
+
+Zakres prac
+
+Celem projektu jest przygotowanie aplikacji prezentującej podsumowanie 
+rozgrywek sportowych oraz umożliwiającej zarządzanie bazą danych.
+
+1. Zainstalować json-server i przygotować bazę danych zawierającą następujące 
+kolekcje:
+a. players - gracze, każdy gracz posiada imię, nazwisko oraz relację do drużyny
+b. teams - drużyny w których skład wchodzą gracze, drużyna posiada nazwę, rok 
+założenia i lokalizację
+c. games - rozgrywki opisujące spotkania pomiędzy dwoma drużynami, rozgrywka 
+zawiera datę, tytuł rozgrywki, miejsce spotkania, czas trwania, wynik oraz 
+relację do dwuch drużyn.
+
+2. Strona ma zawierać cztery zakładki przełączane bez wykorzystania routingu -
+a przy pomocy pokazywania/ ukrywania odpowiedniego komponentu:
+ a. Baza graczy
+    i. lista graczy
+    ii. możliwość dodawania graczy
+    iii. możliwośc edycji graczy
+    iV. możliwość usuwania graczy - z potwierdzeniem czy na pewno chcemy 
+    wykonać taką akcję. Jeżeli zawodnik należy do drużyny to usunięcie 
+    nie powinno być możliwe - należy wyświetlić informację, że nie można usunąć 
+    zawodnika, który jest obecnie w drużynie.
+b. Baza drużyn
+    i. lista drużyn
+    ii. możliwośc dodawania drużyn wraz z możliwością dodawania zawodników do 
+    danej drużyny - zawodnicy do dodania mogą być dodani tylko i wyłącznie 
+    jednokrotnie do jednej drużyny. Dostępni zawodnicy powinni być prezentowani 
+    w postaci listy rozwijalnej w formularzu.
+    iii. możliwośc edycji drużyny i składu zawodników.
+    iV. możliwość usunięcia drużyny z potwierdzeniem chęci wykonania takiej 
+    akcji. Jeżeli jakaś drużyna brała udział w rozgrywkach - nie można jej 
+    usunąć.
+c. Baza rozgrywek
+    i. lista rozwrywek
+    ii. możliwość dodania rozgrywki - wybór uczestniczących drużyn, 
+    wprowadzenie wyniku spotkania, czasu trwania, daty oraz lokalizacji
+    iii. możliwość edycji rozgrywki
+d. statystyki
+    i. ostatnia rozegrana rozgrywka - kto z kim, kiedy, ile trwała, gdzie i 
+    jaki wynik
+    ii. wykres prezentujący ilośc rozgrywek w danym dniu/ tygodniu/ miesiącu 
+    - zakres prezentowanych danych do wyboru przez użytkownika poprzez wybór 
+    odpowiedniej opcji.
+    iii. top 3 drużyn pod kątem ilości zdobytych goli - należy tak przemyśleć 
+    strukturę danych, żeby było jasne, która drużyna strzeliła ile goli.
+
+3. Formularze służące do wprowadzania/edycji danych powinny być walidowane pod 
+kątem poprawności wprowadzanych danych.
+
+4. Aplikacja powinna być ostylowana z wykorzystaniem styled-components oraz 
+powinna posiadać dwa motywy - jasny oraz ciemny.
+
+5. Aplikacja powinna wykorzystywać react-query do optymalnego zarządzania 
+danymi oraz fetch do pobierania danych.
+
+6. Aplikacja powinna działać dobrze z włączonym StrictMode.
+
+7. Należy skonfigurawać linter ooraz husky w celu automatycznego formatowania 
+kodu zgodnie z ustalonymi w zespole regułami.
