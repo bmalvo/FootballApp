@@ -1,0 +1,31 @@
+{
+    "players": [
+
+        {
+            "id": "1",
+            "imię": "",
+            "Nazwisko": "",
+            "Drużyna": ""
+        }
+    ],
+    "teams": [
+
+        {
+            "id": "1",
+            "Nazwa": "",
+            "Rok założenia": "",
+            "Lokalizacja": ""
+        }
+    ],
+    "games": [
+        {
+            "id": "1",
+            "Data spotkania": "",
+            "Tytuł rozgrywki": "",
+            "Miejsce spotkania": "",
+            "Czas trwania": "",
+            "Wynik": "",
+            "Drużyny": ""
+        }
+    ]
+}
