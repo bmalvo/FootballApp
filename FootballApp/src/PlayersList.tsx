@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
+import { PlayerForm } from "./forms/PlayerForm";
 
 type Player = {
 
@@ -22,7 +23,10 @@ export const Players = () => {
 
     if (!data) return <p>Brak zawodników w bazie</p>
 
-    return <ul>
+    return <>
+    <ul>
         {data.map(el => <li key={el.id}>{el.Imię} { el.Nazwisko}</li>)}
-    </ul>
+        </ul>
+        <PlayerForm/>
+    </>
 }
