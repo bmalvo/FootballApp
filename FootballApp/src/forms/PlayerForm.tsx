@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react"
-import fs from "fs";
 
 export const PlayerForm = () => {
 
