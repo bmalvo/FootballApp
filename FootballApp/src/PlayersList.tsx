@@ -1,31 +1,25 @@
-import { useQuery } from "@tanstack/react-query"
+// import { useQuery } from "@tanstack/react-query"
 import { PlayerForm } from "./forms/PlayerForm";
+import { useApi } from "./hooks/useApi";
+import { useEffect } from "react";
+import { PlayersType } from "./types"
 
-type Player = {
-
-    id: number;
-    Imię: string;
-    Nazwisko: string;
-    Drużyna: string;
-}
 
 export const Players = () => {
 
-    const { data } = useQuery({
+    const { data, error, loading, apiGet } = useApi<PlayersType[]>()
 
-        queryKey: ['players'],
-        queryFn: async () => {
-            
-            const response = await fetch('http://localhost:3000/players');
-            return response.json() as Promise<Player[]>;
-        }
-    })
+    useEffect(() => {
+        apiGet('players')
+    }, [])
 
+    if(loading) return <p>Wczytywanie zawodników...</p>
+    if (error) return <p>Wystąpił problem: { error }</p>
     if (!data) return <p>Brak zawodników w bazie</p>
 
     return <>
     <ul>
-        {data.map(el => <li key={el.id}>{el.Imię} { el.Nazwisko}</li>)}
+        {data?.map(el => <li key={el.id}>{el.Imię} { el.Nazwisko}</li>)}
         </ul>
         <PlayerForm/>
     </>
