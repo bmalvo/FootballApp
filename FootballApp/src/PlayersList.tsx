@@ -1,17 +1,12 @@
 // import { useQuery } from "@tanstack/react-query"
 import { PlayerForm } from "./forms/PlayerForm";
-import { useApi } from "./hooks/useApi";
-import { useEffect } from "react";
-import { PlayersType } from "./types"
+import { usePlayerList } from "./hooks/usePlayerList";
+import { SinglePlayer } from "./SinglePlayer";
 
 
 export const Players = () => {
 
-    const { data, error, loading, apiGet } = useApi<PlayersType[]>()
-
-    useEffect(() => {
-        apiGet('players')
-    }, [])
+    const { data, error, loading} = usePlayerList();
 
     if(loading) return <p>Wczytywanie zawodników...</p>
     if (error) return <p>Wystąpił problem: { error }</p>
@@ -19,7 +14,7 @@ export const Players = () => {
 
     return <>
     <ul>
-        {data?.map(el => <li key={el.id}>{el.Imię} { el.Nazwisko}</li>)}
+            {data?.map(el => <SinglePlayer key={el.id} player={el} />)}
         </ul>
         <PlayerForm/>
     </>

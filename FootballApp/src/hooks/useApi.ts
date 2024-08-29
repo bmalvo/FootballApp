@@ -4,7 +4,6 @@ const API_BASE = 'http://localhost:3000/';
 
 export const useApi = <T>() => {
 
-    const [data, setData] = useState<T>();
     const [loading, setLoadning] = useState<boolean>(false);
     const [error, setError] = useState('');
 
@@ -29,7 +28,7 @@ export const useApi = <T>() => {
 
             if (response.ok) {
                 const data: T = await response.json();
-                return setData(data);
+                return data
             } else {
                 const apiError: string = await response.text();
                 setError(apiError);
@@ -57,6 +56,6 @@ export const useApi = <T>() => {
     }
 
     return {
-        apiGet, apiDelete, apiPost, loading, error, data
+        apiGet, apiDelete, apiPost, loading, error
     }
 }
