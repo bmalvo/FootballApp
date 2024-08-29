@@ -6,7 +6,8 @@ import { SinglePlayer } from "./SinglePlayer";
 
 export const Players = () => {
 
-    const { data, error, loading} = usePlayerList();
+    const { data, error, loading, removePlayer } = usePlayerList();
+    console.log(data)
 
     if(loading) return <p>Wczytywanie zawodników...</p>
     if (error) return <p>Wystąpił problem: { error }</p>
@@ -14,7 +15,7 @@ export const Players = () => {
 
     return <>
     <ul>
-            {data?.map(el => <SinglePlayer key={el.id} player={el} />)}
+            {data?.map(el => <SinglePlayer key={el.id} onPlayerRemove= {removePlayer} player={el} />)}
         </ul>
         <PlayerForm/>
     </>

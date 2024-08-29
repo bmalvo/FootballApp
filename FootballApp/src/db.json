@@ -1,43 +1,41 @@
 {
-    "players": [
-
-        {
-            "id": "1",
-            "Imię": "Michał",
-            "Nazwisko": "Gałecki",
-            "Drużyna": "Sparta Żory"
-        },
-        {
-            "id": "2",
-            "Imię": "Jakub",
-            "Nazwisko": "Parma",
-            "Drużyna": "Sparta Żory"
-        }
-    ],
-    "teams": [
-
-        {
-            "id": "1",
-            "Nazwa": "Sparta Żory",
-            "Rok założenia": "2024",
-            "Lokalizacja": "Żory"
-        },
-        {
-            "id": "2",
-            "Nazwa": "Czapla Kryry",
-            "Rok założenia": "2002",
-            "Lokalizacja": "Kryry"
-        }
-    ],
-    "games": [
-        {
-            "id": "1",
-            "Data spotkania": "23 08 2024",
-            "Tytuł rozgrywki": "spotkanie ligowe",
-            "Miejsce spotkania": "Kryry",
-            "Czas trwania": "90 minut",
-            "Wynik": "2 : 2",
-            "Drużyny": "Sparta Żory - Czapla Kryry"
-        }
-    ]
+  "players": [
+    {
+      "id": "1",
+      "Imię": "Michał",
+      "Nazwisko": "Gałecki",
+      "Drużyna": "Sparta Żory"
+    },
+    {
+      "id": "2",
+      "Imię": "Jakub",
+      "Nazwisko": "Parma",
+      "Drużyna": "Sparta Żory"
+    }
+  ],
+  "teams": [
+    {
+      "id": "1",
+      "Nazwa": "Sparta Żory",
+      "Rok założenia": "2024",
+      "Lokalizacja": "Żory"
+    },
+    {
+      "id": "2",
+      "Nazwa": "Czapla Kryry",
+      "Rok założenia": "2002",
+      "Lokalizacja": "Kryry"
+    }
+  ],
+  "games": [
+    {
+      "id": "1",
+      "Data spotkania": "23 08 2024",
+      "Tytuł rozgrywki": "spotkanie ligowe",
+      "Miejsce spotkania": "Kryry",
+      "Czas trwania": "90 minut",
+      "Wynik": "2 : 2",
+      "Drużyny": "Sparta Żory - Czapla Kryry"
+    }
+  ]
 }

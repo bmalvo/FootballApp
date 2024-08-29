@@ -13,16 +13,23 @@ export const usePlayerList = () => {
         if (response) setData(response as PlayersType[]);
     }
 
+    const removePlayer = (id: string) => {
+
+        setData(prevPlayers => prevPlayers?.filter(
+            player => player.id.toString() !== id))
+    }
+
     useEffect(() => {
 
-        getPlayers
+        getPlayers();
     }, [])
     
     return {
 
         data,
         error,
-        loading
+        loading,
+        removePlayer
     }
 }
 
