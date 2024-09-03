@@ -13,7 +13,7 @@ export const useApi = <T>() => {
         const commonData = {
             method,
             headers: {
-                'Content-Type': 'aplication/json',
+                 'Content-Type': 'aplication/json',
 
             }
         }
@@ -27,7 +27,7 @@ export const useApi = <T>() => {
             const response = await fetch(`${API_BASE}${url}`, reqData);
 
             if (response.ok) {
-                const data: T = await response.json();
+                const data: R = await response.json();
                 return data
             } else {
                 const apiError: string = await response.text();

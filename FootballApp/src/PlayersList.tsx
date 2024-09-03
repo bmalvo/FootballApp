@@ -6,17 +6,17 @@ import { SinglePlayer } from "./SinglePlayer";
 
 export const Players = () => {
 
-    const { data, error, loading, removePlayer } = usePlayerList();
-    console.log(data)
+    const { data, error, loading, removePlayer, addPlayer } = usePlayerList();
+    // console.log('data from player list: ', data)
 
     if(loading) return <p>Wczytywanie zawodników...</p>
     if (error) return <p>Wystąpił problem: { error }</p>
     if (!data) return <p>Brak zawodników w bazie</p>
 
     return <>
-    <ul>
+        <ul>
             {data?.map(el => <SinglePlayer key={el.id} onPlayerRemove= {removePlayer} player={el} />)}
         </ul>
-        <PlayerForm/>
+        <PlayerForm onNewPlayer={ addPlayer} />
     </>
 }

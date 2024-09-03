@@ -10,14 +10,20 @@ export const usePlayerList = () => {
     const getPlayers = async () => {
         
         const response = await apiGet('players');
+        console.log('response: ', response)
         if (response) setData(response as PlayersType[]);
     }
 
     const removePlayer = (id: string) => {
 
         setData(prevPlayers => prevPlayers?.filter(
-            player => player.id.toString() !== id))
+            player => player.object.id !== id))
     }
+
+    const addPlayer = (player: PlayersType) => {
+
+        setData(prevPlayers => [...(prevPlayers || []), player]);
+    };
 
     useEffect(() => {
 
@@ -29,7 +35,8 @@ export const usePlayerList = () => {
         data,
         error,
         loading,
-        removePlayer
+        removePlayer,
+        addPlayer
     }
 }
 

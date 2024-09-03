@@ -14,17 +14,18 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
     
     const onDelete = () => {
 
-        deletePlayer(player.id.toString());
+        deletePlayer(player.id);
+        console.log('url: ', player)
     }
 
     useEffect(() => {
 
         if (!data) return;
-        onPlayerRemove(data.id.toString());
+        onPlayerRemove(data.object.id);
     },[data])
 
     return <>
-        <li><p>{player.Imię} {player.Nazwisko}</p>
+        <li><p>{player.object.Imię} {player.object.Nazwisko}</p>
             <button disabled={loading} onClick={onDelete}>Usuń</button>
             {error && <p>{ error }</p>}
         </li>
