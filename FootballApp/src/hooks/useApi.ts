@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const API_BASE = 'http://localhost:3000/';
 
-export const useApi = <T>() => {
+export const useApi = () => {
 
     const [loading, setLoadning] = useState<boolean>(false);
     const [error, setError] = useState('');
