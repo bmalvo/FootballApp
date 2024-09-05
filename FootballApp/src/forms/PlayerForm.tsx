@@ -12,7 +12,6 @@ export const PlayerForm = ({onNewPlayer}: PlayerFormProps) => {
     const { createPlayer, error, loading, data } = useCreatePlayer(); 
 
     const [formState, setFormState] = useState({
-
         Imię: "",
         Nazwisko: "",
         Drużyna: ""
