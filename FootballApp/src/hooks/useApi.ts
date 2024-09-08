@@ -7,7 +7,7 @@ export const useApi = () => {
     const [loading, setLoadning] = useState<boolean>(false);
     const [error, setError] = useState('');
 
-    const call = async <R, P = object>(url: string, method: 'GET' | 'DELETE' | 'POST', body?: P) => {
+    const call = async <R, P = object>(url: string, method: 'GET' | 'DELETE' | 'POST' | 'PUT', body?: P) => {
         setLoadning(true);
 
         const commonData = {
@@ -52,10 +52,13 @@ export const useApi = () => {
 
     const apiPost = async<R, P>(url: string, data: P) => {
         return await call<R, P>(url, 'POST', data);
+    }
 
+    const apiEdit = async <R, P>(url: string, data: P) => {
+        return await call<R, P>(url, 'PUT', data);
     }
 
     return {
-        apiGet, apiDelete, apiPost, loading, error
+        apiGet, apiDelete, apiPost, apiEdit, loading, error
     }
 }

@@ -10,7 +10,6 @@ export const usePlayerList = () => {
     const getPlayers = async () => {
         
         const response = await apiGet('players');
-        console.log('response: ', response)
         if (response) setData(response as PlayersType[]);
     }
 

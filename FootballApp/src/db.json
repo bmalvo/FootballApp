@@ -26,6 +26,30 @@
         "Nazwisko": "Gałązka",
         "Drużyna": ""
       }
+    },
+    {
+      "id": "2189",
+      "object": {
+        "Imię": "marcin",
+        "Nazwisko": "testowy",
+        "Drużyna": "biedronki"
+      }
+    },
+    {
+      "id": "0680",
+      "object": {
+        "Imię": "marek",
+        "Nazwisko": "pieczka",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "4236",
+      "object": {
+        "Imię": "marcin",
+        "Nazwisko": "galazka",
+        "Drużyna": ""
+      }
     }
   ],
   "teams": [

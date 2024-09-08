@@ -4,11 +4,12 @@ import { PlayersType } from "../types";
 
 type PlayerFormProps = {
 
-    onNewPlayer: (player: PlayersType) => void;
+    onNewPlayer?: (player: PlayersType) => void;
+    player?: PlayersType;
 }
 
-export const PlayerForm = ({onNewPlayer}: PlayerFormProps) => {
-
+export const PlayerForm = ({onNewPlayer, player}: PlayerFormProps) => {
+    console.log('player form: ', player)
     const { createPlayer, error, loading, data } = useCreatePlayer(); 
 
     const [formState, setFormState] = useState({
@@ -40,23 +41,29 @@ export const PlayerForm = ({onNewPlayer}: PlayerFormProps) => {
 
     useEffect(() => {
         if(!data) return
-        onNewPlayer(data)
+        onNewPlayer?(data):null
     },[data])
 
     if(loading) return <p>Wczytywanie...</p>
 
     return <form onSubmit={handleSubmit}>
         <div>
-        <input type="text" name="Imię" id="name" value={formState.Imię} onChange={handleChange} />
-        <label htmlFor="name"> Imię</label>
+            <input type="text" name="Imię" id="name" value={formState.Imię}
+                onChange={handleChange}
+                placeholder={player?.object.Imię} />
+            <label htmlFor="name"> Imię</label>
         {!formState.Imię && <p>Imię jest wymagane!</p>}
         </div>
         <div>
-        <input type="text" name="Nazwisko" id="surname" value={formState.Nazwisko} onChange={handleChange} />
+            <input type="text" name="Nazwisko" id="surname" value={formState.Nazwisko}
+                onChange={handleChange}
+                placeholder={ player?.object.Nazwisko} />
         <label htmlFor="surname"> Nazwisko</label>
         {!formState.Nazwisko && <p>Nazwisko jest wymagane!</p>}        </div>
         <div>
-        <input type="text" name="Drużyna" id="team" value={formState.Drużyna} onChange={handleChange}/>
+            <input type="text" name="Drużyna" id="team" value={formState.Drużyna}
+                onChange={handleChange}
+                placeholder={ player?.object.Drużyna} />
         <label htmlFor="team"> Drużyna</label>
         </div>
         <button type="submit">dodaj</button>
