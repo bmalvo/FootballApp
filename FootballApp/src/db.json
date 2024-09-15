@@ -10,22 +10,20 @@
       }
     },
     {
-      "id": "2",
       "object": {
-        "id": "2",
         "Imię": "Jakub",
         "Nazwisko": "Parma",
         "Drużyna": "Sparta Żory"
-      }
+      },
+      "id": "2"
     },
     {
-      "id": "d765",
       "object": {
-        "id": "4",
-        "Imię": "Przemysław",
-        "Nazwisko": "Gałązka",
+        "Imię": "Marek",
+        "Nazwisko": "Citko",
         "Drużyna": ""
-      }
+      },
+      "id": "d765"
     },
     {
       "id": "2189",
@@ -33,14 +31,6 @@
         "Imię": "marcin",
         "Nazwisko": "testowy",
         "Drużyna": "biedronki"
-      }
-    },
-    {
-      "id": "0680",
-      "object": {
-        "Imię": "marek",
-        "Nazwisko": "pieczka",
-        "Drużyna": ""
       }
     },
     {

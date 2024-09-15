@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDeletePlayer } from "./hooks/useDeletePlayer";
 import { PlayersType } from "./types"
-import { PlayerForm } from "./forms/PlayerForm";
+import { EditPlayerForm } from "./forms/EditPlayerForm";
 
 type PlayerType = {
 
@@ -25,20 +25,21 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
 
         if (!data) return;
         onPlayerRemove(data.id);
-    }, [data])
+    }, [])
     
     // edit player
 
     const onEdit = () => {
 
         setSeeForm(!seeForm);
+
     }
 
     return <>
         <li><p>{player.object.Imię} {player.object.Nazwisko}</p>
-            {seeForm ? <PlayerForm player={player} /> : null}
             <button disabled={loading} onClick={onDelete}>Usuń</button>
             <button disabled={loading} onClick={onEdit}>Edytuj</button>
+            {seeForm ? <EditPlayerForm player={ player} /> : null}
             {error && <p>{ error }</p>}
         </li>
     </>

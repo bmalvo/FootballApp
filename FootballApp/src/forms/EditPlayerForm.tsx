@@ -1,26 +1,29 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { useCreatePlayer } from "../hooks/useCreatePlayer";
 import { PlayersType } from "../types";
+import { useEditPlayer } from "../hooks/useEditPlayer";
 
 type PlayerFormProps = {
 
-    onNewPlayer?: (player: PlayersType) => void;
+    onEdit?: (player: PlayersType) => void;
+    player: PlayersType;
 }
 
-export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
+export const EditPlayerForm = ({ onEdit, player }: PlayerFormProps) => {
+    
+    console.log(player.id)
 
-    const { createPlayer, error, loading, data } = useCreatePlayer(); 
+    const { editPlayer, error, loading, data } = useEditPlayer(player.id); 
 
     const [formState, setFormState] = useState({
-        Imię: "",
-        Nazwisko: "",
-        Drużyna: ""
+        Imię: player.object.Imię,
+        Nazwisko: player.object.Nazwisko,
+        Drużyna: player.object.Drużyna
     });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
-        createPlayer(formState);
+        editPlayer(formState);
         setFormState({
 
             Imię: "",
@@ -40,7 +43,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
 
     useEffect(() => {
         if(!data) return
-        onNewPlayer?(data):null
+        onEdit?(data):null
     },[data])
 
     if(loading) return <p>Wczytywanie...</p>
@@ -56,7 +59,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
                 onChange={handleChange}
             />
             <label htmlFor="name"> Imię</label>
-            {!formState.Imię && <p>Imię jest wymagane!</p>}
+            {formState.Imię === '' && <p>Imię jest wymagane!</p>}
         </div>
         <div>
             <input
@@ -67,7 +70,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
                 onChange={handleChange}
             />
             <label htmlFor="surname"> Nazwisko</label>
-                {!formState.Nazwisko && <p>Nazwisko jest wymagane!</p>}
+            {formState.Nazwisko === '' && <p>Nazwisko jest wymagane!</p>}
         </div>
         <div>
             <input
@@ -80,7 +83,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
             <label htmlFor="team"> Drużyna</label>
             </div>
             
-        <button type="submit">dodaj</button>
+        <button type="submit">Edytuj</button>
         {error && <p>{error}</p>}
         </form>
     </>
