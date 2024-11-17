@@ -5,25 +5,25 @@ Zakres prac
 Celem projektu jest przygotowanie aplikacji prezentującej podsumowanie 
 rozgrywek sportowych oraz umożliwiającej zarządzanie bazą danych.
 
-1. Zainstalować json-server i przygotować bazę danych zawierającą następujące 
+1. Zainstalować json-server i przygotować bazę danych zawierającą następujące    v
 kolekcje:
-a. players - gracze, każdy gracz posiada imię, nazwisko oraz relację do drużyny
+a. players - gracze, każdy gracz posiada imię, nazwisko oraz relację do drużyny  v
 b. teams - drużyny w których skład wchodzą gracze, drużyna posiada nazwę, rok 
-założenia i lokalizację
+założenia i lokalizację                                                          v
 c. games - rozgrywki opisujące spotkania pomiędzy dwoma drużynami, rozgrywka 
 zawiera datę, tytuł rozgrywki, miejsce spotkania, czas trwania, wynik oraz 
-relację do dwuch drużyn.
+relację do dwóch drużyn.                                                         v
 
 2. Strona ma zawierać cztery zakładki przełączane bez wykorzystania routingu -
 a przy pomocy pokazywania/ ukrywania odpowiedniego komponentu:
  a. Baza graczy
-    i. lista graczy
-    ii. możliwość dodawania graczy
-    iii. możliwośc edycji graczy
+    i. lista graczy                                                              v
+    ii. możliwość dodawania graczy                                               v
+    iii. możliwośc edycji graczy                                                 v
     iV. możliwość usuwania graczy - z potwierdzeniem czy na pewno chcemy 
     wykonać taką akcję. Jeżeli zawodnik należy do drużyny to usunięcie 
     nie powinno być możliwe - należy wyświetlić informację, że nie można usunąć 
-    zawodnika, który jest obecnie w drużynie.
+    zawodnika, który jest obecnie w drużynie.                                    v
 b. Baza drużyn
     i. lista drużyn
     ii. możliwośc dodawania drużyn wraz z możliwością dodawania zawodników do 

@@ -3,7 +3,6 @@
     {
       "id": "1",
       "object": {
-        "id": "1",
         "Imię": "Michał",
         "Nazwisko": "Gałecki",
         "Drużyna": "Sparta Żory"
@@ -26,18 +25,26 @@
       "id": "d765"
     },
     {
-      "id": "2189",
-      "object": {
-        "Imię": "marcin",
-        "Nazwisko": "testowy",
-        "Drużyna": "biedronki"
-      }
-    },
-    {
       "id": "4236",
       "object": {
         "Imię": "marcin",
         "Nazwisko": "galazka",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "1473",
+      "object": {
+        "Imię": "Kuba",
+        "Nazwisko": "pirko",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "bfeb",
+      "object": {
+        "Imię": "marcin",
+        "Nazwisko": "pirko",
         "Drużyna": ""
       }
     }

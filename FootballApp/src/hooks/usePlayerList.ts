@@ -14,7 +14,8 @@ export const usePlayerList = () => {
     }
 
     const removePlayer = (id: string) => {
-
+        
+        alert('Czy napewno chcesz usunąć tego zawodnika?')
         setData(prevPlayers => prevPlayers?.filter(
             player => player.object.id !== id))
     }
