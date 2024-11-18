@@ -52,15 +52,27 @@
   "teams": [
     {
       "id": "1",
-      "Nazwa": "Sparta Żory",
-      "Rok założenia": "2024",
-      "Lokalizacja": "Żory"
+      "object": {
+        "Nazwa": "Sparta Żory",
+        "Rok założenia": "2024",
+        "Lokalizacja": "Żory"
+      }
     },
     {
       "id": "2",
-      "Nazwa": "Czapla Kryry",
-      "Rok założenia": "2002",
-      "Lokalizacja": "Kryry"
+      "object": {
+        "Nazwa": "Czapla Kryry",
+        "Rok założenia": "2002",
+        "Lokalizacja": "Kryry"
+      }
+    },
+    {
+      "id": "346c",
+      "object": {
+        "Nazwa": "testowa",
+        "Rok założenia": "1232",
+        "Lokalizacja": "sad"
+      }
     }
   ],
   "games": [

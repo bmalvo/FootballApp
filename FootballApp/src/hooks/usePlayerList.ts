@@ -23,12 +23,13 @@ export const usePlayerList = () => {
     const addPlayer = (player: PlayersType) => {
 
         setData(prevPlayers => [...(prevPlayers || []), player]);
+        
     };
-
-    useEffect(() => {
-
-        getPlayers();
-    }, [])
+        useEffect(() => {
+            
+            getPlayers();
+            console.log()
+        }, [])
     
     return {
 

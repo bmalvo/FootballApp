@@ -20,6 +20,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
+        console.log(formState)
         createPlayer(formState);
         setFormState({
 

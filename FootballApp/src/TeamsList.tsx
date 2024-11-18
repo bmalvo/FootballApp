@@ -1,4 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
+import { useState } from "react";
+import { useTeamsList } from "./hooks/useTeamsList";
+import { TeamForm } from "./forms/TeamForm";
 
 type Teams = {
 
@@ -8,21 +11,36 @@ type Teams = {
     Lokalizacja: string;
 }
 
-export const Teams = () => {
+export const TeamsList = () => {
 
-    const { data } = useQuery({
+    const [seeAdTeamForm, setSeeAdTeamForm] = useState(false);
+    const {teamsList} = useTeamsList();
 
-        queryKey: ['teams'],
-        queryFn: async () => {
+    // const { data } = useQuery({
+
+    //     queryKey: ['teams'],
+    //     queryFn: async () => {
             
-            const response = await fetch('http://localhost:3000/teams');
-            return response.json() as Promise<Teams[]>;
-        }
-    })
+    //         const response = await fetch('http://localhost:3000/teams');
+    //         return response.json() as Promise<Teams[]>;
+    //     }
+    // })
 
-    if (!data) return <p>Brak drużyn w bazie</p>
+    if (!teamsList) return <p>Brak drużyn w bazie</p>
 
-    return <ul>
-        {data.map(el => <li key={el.id}> {el.Nazwa}</li>)}
-    </ul>
+    console.log(teamsList)
+
+    const seeAdTeamFormHandle = () => {
+
+        setSeeAdTeamForm(prevState => !prevState);
+    }
+
+    return <>
+        <ul>
+            {teamsList.map(team => <li key={team.id}> {team.object.Nazwa}</li>)}
+        </ul>
+        {seeAdTeamForm? <TeamForm /> : null}
+        <button onClick={seeAdTeamFormHandle}>Dodaj drużynę</button>
+
+     </>
 }

@@ -5,18 +5,18 @@ import { usePlayerList } from "./hooks/usePlayerList";
 import { SinglePlayer } from "./SinglePlayer";
 
 
-export const Players = () => {
+export const PlayersList = () => {
 
     const { data, error, loading, removePlayer, addPlayer } = usePlayerList();
-    const [seeAdForm, setAdForm] = useState(false);
+    const [seeAdPlayerForm, setSeeAdPlayerForm] = useState(false);
 
     if(loading) return <p>Wczytywanie zawodników...</p>
     if (error) return <p>Wystąpił problem: { error }</p>
     if (!data) return <p>Brak zawodników w bazie</p>
 
-    const seeAdFormHandle = () => {
+    const seeAdPlayerFormHandle = () => {
 
-        setAdForm(prevState => !prevState);
+        setSeeAdPlayerForm(prevState => !prevState);
     }
 
     return <>
@@ -24,7 +24,7 @@ export const Players = () => {
             {data?.map(el => <SinglePlayer key={el.id}
                 onPlayerRemove={removePlayer} player={el} />)}
         </ul>
-        {seeAdForm? <PlayerForm onNewPlayer={addPlayer} /> : null}
-        <button onClick={seeAdFormHandle}>Dodaj zawodnika</button>
+        {seeAdPlayerForm? <PlayerForm onNewPlayer={addPlayer} /> : null}
+        <button onClick={seeAdPlayerFormHandle}>Dodaj zawodnika</button>
     </>
 }

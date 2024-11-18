@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { Players } from "./PlayersList";
-import { Teams } from "./TeamsList";
+import { useEffect, useState } from "react"
+import { PlayersList } from "./PlayersList";
+import { TeamsList } from "./TeamsList";
 import { Games } from "./GamesList";
 import { Statistics } from "./Statistics";
 
@@ -43,8 +43,8 @@ export const Bookmarks = () => {
         <button onClick={toggleTeams}>Baza drużyn</button>
         <button onClick={toggleGames}>Baza rozgrywek</button>
         <button onClick={toggleStatistics}>Statystyki</button>
-        {seePlayers ? <Players /> : null}
-        {seeTeams ? <Teams/> : null}
+        {seePlayers ? <PlayersList /> : null}
+        {seeTeams ? <TeamsList/> : null}
         {seeGames ? <Games/> : null}
         {seeStatistics ? <Statistics/> : null}
         </div>

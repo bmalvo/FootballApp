@@ -25,8 +25,8 @@ a przy pomocy pokazywania/ ukrywania odpowiedniego komponentu:
     nie powinno być możliwe - należy wyświetlić informację, że nie można usunąć 
     zawodnika, który jest obecnie w drużynie.                                    v
 b. Baza drużyn
-    i. lista drużyn
-    ii. możliwośc dodawania drużyn wraz z możliwością dodawania zawodników do 
+    i. lista drużyn                                                              v
+    ii. możliwośc dodawania drużyn wraz z możliwością dodawania zawodników do  
     danej drużyny - zawodnicy do dodania mogą być dodani tylko i wyłącznie 
     jednokrotnie do jednej drużyny. Dostępni zawodnicy powinni być prezentowani 
     w postaci listy rozwijalnej w formularzu.
