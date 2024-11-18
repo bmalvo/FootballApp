@@ -8,8 +8,6 @@ type TeamFormProps = {
 }
 
 export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
-    
-    //  Tutaj! dokoncz formularz dodający druzyne!!! 
 
     const { createTeam, error, loading, data } = useCreateTeam(); 
 
@@ -22,7 +20,6 @@ export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
-        console.log(formState)
         createTeam(formState);
         setFormState({
 

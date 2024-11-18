@@ -22,7 +22,7 @@ export const useTeamsList = () => {
 
     const addTeam = (team: TeamType) => {
 
-        setTeamsList(prevPlayers => [...(prevPlayers || []), team]);
+        setTeamsList(prevTeams => [...(prevTeams || []), team]);
         
     };
         useEffect(() => {

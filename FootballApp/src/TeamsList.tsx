@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { useState } from "react";
 import { useTeamsList } from "./hooks/useTeamsList";
 import { TeamForm } from "./forms/TeamForm";
+import { SingleTeam } from "./SingleTeam";
 
 type Teams = {
 
@@ -14,7 +15,7 @@ type Teams = {
 export const TeamsList = () => {
 
     const [seeAdTeamForm, setSeeAdTeamForm] = useState(false);
-    const {teamsList} = useTeamsList();
+    const {teamsList, removeTeam} = useTeamsList();
 
     // const { data } = useQuery({
 
@@ -28,8 +29,6 @@ export const TeamsList = () => {
 
     if (!teamsList) return <p>Brak drużyn w bazie</p>
 
-    console.log(teamsList)
-
     const seeAdTeamFormHandle = () => {
 
         setSeeAdTeamForm(prevState => !prevState);
@@ -37,7 +36,10 @@ export const TeamsList = () => {
 
     return <>
         <ul>
-            {teamsList.map(team => <li key={team.id}> {team.object.Nazwa}</li>)}
+            {teamsList.map(team =>
+                <li key={team.id}>
+                    <SingleTeam team={team} onTeamRemove={removeTeam} />
+                </li>)}
         </ul>
         {seeAdTeamForm? <TeamForm /> : null}
         <button onClick={seeAdTeamFormHandle}>Dodaj drużynę</button>
