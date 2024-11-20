@@ -1,6 +1,9 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { TeamType } from "../types";
 import { useCreateTeam } from "../hooks/useCreateTeam";
+import { usePlayerList } from "../hooks/usePlayerList";
+import { useEditPlayer } from "../hooks/useEditPlayer";
+import { SinglePlayer } from "../SinglePlayer";
 
 type TeamFormProps = {
 
@@ -10,22 +13,44 @@ type TeamFormProps = {
 export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
 
     const { createTeam, error, loading, data } = useCreateTeam(); 
+    const { data: playersList } = usePlayerList();
+
+    // const [pickedPlayers, setPickedPlayers] = useState();
+
+    const forPickplayersList = playersList?.filter(player => player.object.Drużyna === '')
 
     const [formState, setFormState] = useState({
         Nazwa: "",
         'Rok założenia': "",
-        Lokalizacja: ""
+        Lokalizacja: "",
+        Zawodnicy: [] as string[]
     });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
-        createTeam(formState);
+        console.log(formState);
+        // createTeam(formState);
+
+        const TeamName = formState.Nazwa
+        formState.Zawodnicy.map(player => {
+            console.log(player.slice(-4));
+            const playerID = player.slice(-4)
+            const { editPlayer } = useEditPlayer(playerID);
+
+            editPlayer((prevState: any) => ({
+                ...prevState,
+                "Drużyna": TeamName
+            }));
+
+        })
+
         setFormState({
 
             Nazwa: "",
             'Rok założenia': "",
-            Lokalizacja: ""
+            Lokalizacja: "",
+            Zawodnicy: []
         });
     };
 
@@ -37,6 +62,21 @@ export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
             ...prevState,
             [e.target.name]: e.target.value
         }))
+    }
+
+    // let pickedPlayers: string[] = []
+
+    const pickedPlayerHandleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+
+        console.log(e.target.value)
+        setFormState(prevState => ({
+
+            ...prevState,
+            [e.target.name]: formState.Zawodnicy.concat([e.target.value])
+        }
+    ))
+        
+        console.log(formState.Zawodnicy)
     }
 
     useEffect(() => {
@@ -79,9 +119,18 @@ export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
                 id="city"
                 value={formState.Lokalizacja}
                 onChange={handleChange}
-                // required    
+                required    
              />
             <label htmlFor="city"> Lokalizacja</label>
+            </div>
+            <div>
+                <select onChange={pickedPlayerHandleChange} name="Zawodnicy" id="pickedPlayers">
+                    <option value="" >Dodaj zawodnika do drużyny</option>
+                    {forPickplayersList?.map(player => <option key={player.id}>{player.object.Imię} {player.object.Nazwisko} id:{ player.id}</option>)}
+                </select>
+                <div>
+                    {formState.Zawodnicy.map((player,id) => <p key={id}>{ player}</p>)}
+                </div>
             </div>
             
         <button type="submit">dodaj</button>

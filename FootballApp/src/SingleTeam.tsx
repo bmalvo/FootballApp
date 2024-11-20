@@ -26,11 +26,5 @@ export const SingleTeam = ({ team, onTeamRemove }: SingleTeamProps) => {
         <p>{team.object.Nazwa}</p>
         <button onClick={handleDelete}>Usuń</button>
         <button>Edytuj</button>
-        <button>Dodaj zawodnika</button>
-        <form action="">
-            <select name="" id="">
-                {playersList?.map(player => <option key={player.id}>{player.object.Imię} { player.object.Nazwisko}</option>)}
-            </select>
-        </form>
     </>
 }

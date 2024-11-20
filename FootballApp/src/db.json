@@ -1,7 +1,7 @@
 {
   "players": [
     {
-      "id": "1",
+      "id": "1111",
       "object": {
         "Imię": "Michał",
         "Nazwisko": "Gałecki",
@@ -9,20 +9,20 @@
       }
     },
     {
+      "id": "2222",
       "object": {
         "Imię": "Jakub",
         "Nazwisko": "Parma",
         "Drużyna": "Sparta Żory"
-      },
-      "id": "2"
+      }
     },
     {
+      "id": "d765",
       "object": {
         "Imię": "Marek",
         "Nazwisko": "Citko",
         "Drużyna": ""
-      },
-      "id": "d765"
+      }
     },
     {
       "id": "4236",
@@ -55,7 +55,8 @@
       "object": {
         "Nazwa": "Sparta Żory",
         "Rok założenia": "2024",
-        "Lokalizacja": "Żory"
+        "Lokalizacja": "Żory",
+        "Zawodnicy": []
       }
     },
     {
@@ -63,7 +64,21 @@
       "object": {
         "Nazwa": "Czapla Kryry",
         "Rok założenia": "2002",
-        "Lokalizacja": "Kryry"
+        "Lokalizacja": "Kryry",
+        "Zawodnicy": []
+      }
+    },
+    {
+      "id": "0844",
+      "object": {
+        "Nazwa": "wisal skisla",
+        "Rok założenia": "1121",
+        "Lokalizacja": "parczew górny",
+        "Zawodnicy": [
+          "Marek Citko id:d765",
+          "marcin galazka id:4236",
+          "Kuba pirko id:1473"
+        ]
       }
     }
   ],
