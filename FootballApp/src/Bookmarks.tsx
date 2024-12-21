@@ -6,35 +6,35 @@ import { Statistics } from "./Statistics";
 
 export const Bookmarks = () => {
 
-    const [seePlayers, setPlayers] = useState(false);
-    const [seeTeams, setTeams] = useState(false);
-    const [seeGames, setGames] = useState(false);
-    const [seeStatistics, setStatistics] = useState(false);
+    const [displayPlayers, setDisplayPlayers] = useState(false);
+    const [displayTeams, setDisplayTeams] = useState(false);
+    const [displayGames, setDisplayGames] = useState(false);
+    const [displayStatistics, setDisplayStatistics] = useState(false);
 
     const togglePlayers = () => {
-        setPlayers(true)
-        setTeams(false)
-        setGames(false)
-        setStatistics(false)
+        setDisplayPlayers(prev => !prev)
+        setDisplayTeams(false)
+        setDisplayGames(false)
+        setDisplayStatistics(false)
 
     };
     const toggleTeams = () => {
-        setTeams(true)
-        setPlayers(false)
-        setGames(false)
-        setStatistics(false)
+        setDisplayTeams(prev => !prev)
+        setDisplayPlayers(false)
+        setDisplayGames(false)
+        setDisplayStatistics(false)
     };
     const toggleGames = () => {
-        setGames(true)
-        setPlayers(false)
-        setTeams(false)
-        setStatistics(false)
+        setDisplayGames(prev => !prev)
+        setDisplayPlayers(false)
+        setDisplayTeams(false)
+        setDisplayStatistics(false)
     };
     const toggleStatistics = () => {
-        setStatistics(true)
-        setPlayers(false)
-        setGames(false)
-        setTeams(false)
+        setDisplayStatistics(prev => !prev)
+        setDisplayPlayers(false)
+        setDisplayGames(false)
+        setDisplayTeams(false)
     };
 
     return <>
@@ -43,10 +43,10 @@ export const Bookmarks = () => {
         <button onClick={toggleTeams}>Baza drużyn</button>
         <button onClick={toggleGames}>Baza rozgrywek</button>
         <button onClick={toggleStatistics}>Statystyki</button>
-        {seePlayers ? <PlayersList /> : null}
-        {seeTeams ? <TeamsList/> : null}
-        {seeGames ? <Games/> : null}
-        {seeStatistics ? <Statistics/> : null}
+        {displayPlayers ? <PlayersList /> : null}
+        {displayTeams ? <TeamsList/> : null}
+        {displayGames ? <Games/> : null}
+        {displayStatistics ? <Statistics/> : null}
         </div>
     </>
 }
