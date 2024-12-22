@@ -4,7 +4,7 @@ import { TeamType } from "../types";
 
 export const useTeamsList = () => {
 
-    const { error, loading, apiGet } = useApi()
+    const { apiGet } = useApi()
     const [teamsList, setTeamsList] = useState<TeamType[]>();
 
     const getTeams = async () => {
@@ -34,8 +34,6 @@ export const useTeamsList = () => {
     return {
 
         teamsList,
-        error,
-        loading,
         removeTeam,
         addTeam
     }

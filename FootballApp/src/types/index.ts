@@ -1,13 +1,13 @@
 export type PlayersType = {
-    id: string,
-    object: {
         
-        id: string;
+    id?: string;
+    object: {
         Imię: string;
         Nazwisko: string;
         Drużyna: string;
     }
-}
+    }
+
 
 export type PlayerDto = {
 

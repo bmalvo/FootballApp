@@ -1,15 +1,11 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { useCreatePlayer } from "../hooks/useCreatePlayer";
-import { PlayersType } from "../types";
+import { ChangeEvent, FormEvent, useState } from "react"
+import { useCreatePlayerMutation } from "../queries/useCreatePlayerMutation";
 
-type PlayerFormProps = {
 
-    onNewPlayer?: (player: PlayersType) => void;
-}
 
-export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
+export const PlayerForm = () => {
 
-    const { createPlayer, error, loading, data } = useCreatePlayer(); 
+    const { mutate: createPlayer, error, isPending } = useCreatePlayerMutation(); 
 
     const [formState, setFormState] = useState({
         Imię: "",
@@ -21,12 +17,13 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
 
         e.preventDefault();
         createPlayer(formState);
-        setFormState({
-
-            Imię: "",
-            Nazwisko: "",
-            Drużyna: ""
-        });
+        setFormState(
+            {
+                Imię: "",
+                Nazwisko: "",
+                Drużyna: ""
+            }
+        );
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,12 +35,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
         }))
     }
 
-    useEffect(() => {
-        if(!data) return
-        onNewPlayer?(data):null
-    },[data])
-
-    if(loading) return <p>Wczytywanie...</p>
+    if(isPending) return <p>Wczytywanie...</p>
 
     return <>
         <form onSubmit={handleSubmit}>
@@ -81,7 +73,7 @@ export const PlayerForm = ({onNewPlayer,}: PlayerFormProps) => {
             </div>
             
         <button type="submit">dodaj</button>
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         </form>
     </>
 }

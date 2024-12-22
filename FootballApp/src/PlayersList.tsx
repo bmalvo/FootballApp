@@ -1,30 +1,43 @@
-// import { useQuery } from "@tanstack/react-query"
 import { useState } from "react";
 import { PlayerForm } from "./forms/PlayerForm";
-import { usePlayerList } from "./hooks/usePlayerList";
+// import { usePlayerList } from "./hooks/usePlayerList";
 import { SinglePlayer } from "./SinglePlayer";
+// import { useQuery } from "@tanstack/react-query";
+import { useApi } from "./hooks/useApi";
+import { useGetPlayersListQuery } from "./queries/useGetPlayersListQuery";
+import { useDeletePlayerMutation } from "./queries/useDeletePlayerMutation";
+import { PlayersType } from "./types";
 
 
 export const PlayersList = () => {
 
-    const { data: playersList, error, loading, removePlayer, addPlayer } = usePlayerList();
-    const [seeAdPlayerForm, setSeeAdPlayerForm] = useState(false);
+    // const { apiGet} = useApi();
 
-    if(loading) return <p>Wczytywanie zawodników...</p>
-    if (error) return <p>Wystąpił problem: { error }</p>
-    if (!playersList) return <p>Brak zawodników w bazie</p>
+    const { data, error, isLoading} = useGetPlayersListQuery();
 
-    const seeAdPlayerFormHandle = () => {
+    const {isPending, mutate: removePlayer } = useDeletePlayerMutation();
+    const [displayAddPlayerForm, setDisplayAddPlayerForm] = useState(false);
+    // const getPlayers = usePlayerList();
 
-        setSeeAdPlayerForm(prevState => !prevState);
+
+    if(isLoading) return <p>Wczytywanie zawodników...</p>
+    if (error) return <p>Wystąpił problem: { error.message }</p>
+    if (!data) return <p>Brak zawodników w bazie</p>
+
+    const addPlayerFormHandle = () => {
+
+        setDisplayAddPlayerForm(prevState => !prevState);
+        // getPlayers
     }
 
     return <>
         <ul>
-            {playersList?.map(el => <SinglePlayer key={el.id}
-                onPlayerRemove={removePlayer} player={el} />)}
+    
+            {data.map((el: PlayersType) => <SinglePlayer key={el.id} onPlayerRemove={removePlayer} player={el} />)}
+            
         </ul>
-        {seeAdPlayerForm? <PlayerForm onNewPlayer={addPlayer} /> : null}
-        <button onClick={seeAdPlayerFormHandle}>Dodaj zawodnika</button>
+        
+        {displayAddPlayerForm? <PlayerForm /> : null}
+        <button onClick={addPlayerFormHandle}>Dodaj zawodnika</button>
     </>
 }

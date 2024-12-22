@@ -1,5 +1,5 @@
 import { useDeleteTeam } from "./hooks/useDeleteTeam";
-import { usePlayerList } from "./hooks/usePlayerList";
+// import { useGetPlayersListQuery } from "./queries/useGetPlayersListQuery";
 import { TeamType } from "./types"
 
 
@@ -12,7 +12,7 @@ type SingleTeamProps = {
 
 export const SingleTeam = ({ team, onTeamRemove }: SingleTeamProps) => {
 
-    const { data: playersList } = usePlayerList();
+    // const { data: playersList } = useGetPlayersListQuery();
     
     const { deleteTeam } = useDeleteTeam();
 

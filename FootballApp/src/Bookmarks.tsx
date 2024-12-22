@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { PlayersList } from "./PlayersList";
 import { TeamsList } from "./TeamsList";
-import { Games } from "./GamesList";
+import { Games } from "../../GamesList";
 import { Statistics } from "./Statistics";
 
 export const Bookmarks = () => {

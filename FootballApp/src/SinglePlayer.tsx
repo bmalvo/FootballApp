@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useDeletePlayer } from "./hooks/useDeletePlayer";
+// import { useDeletePlayer } from "./hooks/useDeletePlayer";
 import { PlayersType } from "./types"
 import { EditPlayerForm } from "./forms/EditPlayerForm";
+import { useDeletePlayerMutation } from "./queries/useDeletePlayerMutation";
 
 type PlayerType = {
 
@@ -11,7 +12,8 @@ type PlayerType = {
 
 export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
     
-    const { loading, error, deletePlayer, data } = useDeletePlayer();
+    const { isPending, error, mutate: deletePlayer, data } = useDeletePlayerMutation();
+    console.log('data: ', data)
     const [seeForm, setSeeForm] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [alert, setAlert] = useState(false);
@@ -48,8 +50,8 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
     return <>
         <li><p>{player.object.Imię} {player.object.Nazwisko}</p>
             {alert? <p>nie można usunąć zawodnika prypisanego do drużyny</p> : null}
-            <button disabled={loading} onClick={onDelete}>Usuń</button>
-            <button disabled={loading} onClick={onEdit}>Edytuj</button>
+            <button disabled={isPending} onClick={onDelete}>Usuń</button>
+            <button disabled={isPending} onClick={onEdit}>Edytuj</button>
             {seeForm ? <EditPlayerForm player={player} /> : null}
             {confirmDelete ? (
                 <div>
@@ -58,7 +60,7 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
                     <button onClick={cancelDeletion}>Nie</button>
                 </div>
             ) : null}
-            {error && <p>{ error }</p>}
+            {error && <p>{ error.message }</p>}
         </li>
     </>
 } 

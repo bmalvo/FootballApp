@@ -47,6 +47,54 @@
         "Nazwisko": "pirko",
         "Drużyna": ""
       }
+    },
+    {
+      "object": {
+        "Imię": "Zawodnik",
+        "Nazwisko": "testowy2",
+        "Drużyna": ""
+      },
+      "id": "0b32"
+    },
+    {
+      "id": "8db1",
+      "object": {
+        "Imię": "zawodnik3",
+        "Nazwisko": "najman",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "fbf8",
+      "object": {
+        "Imię": "ss",
+        "Nazwisko": "ss",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "857f",
+      "object": {
+        "Imię": "nowy",
+        "Nazwisko": "zawodnik",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "6d0a",
+      "object": {
+        "Imię": "dudek",
+        "Nazwisko": "dance",
+        "Drużyna": ""
+      }
+    },
+    {
+      "id": "98a1",
+      "object": {
+        "Imię": "mariola",
+        "Nazwisko": "bartoń",
+        "Drużyna": ""
+      }
     }
   ],
   "teams": [

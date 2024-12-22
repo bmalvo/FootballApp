@@ -1,9 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import { TeamType } from "../types";
 import { useCreateTeam } from "../hooks/useCreateTeam";
-import { usePlayerList } from "../hooks/usePlayerList";
+// import { usePlayerList } from "../hooks/usePlayerList";
 import { useEditPlayer } from "../hooks/useEditPlayer";
-import { SinglePlayer } from "../SinglePlayer";
+// import { SinglePlayer } from "../SinglePlayer";
+// import { useQueryClient } from "@tanstack/react-query";
+import { useGetPlayersListQuery } from "../queries/useGetPlayersListQuery";
 
 type TeamFormProps = {
 
@@ -12,12 +14,14 @@ type TeamFormProps = {
 
 export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
 
+    const {data: playersList} = useGetPlayersListQuery()
+
     const { createTeam, error, loading, data } = useCreateTeam(); 
-    const { data: playersList } = usePlayerList();
+    // const { data: playersList } = usePlayerList();
 
     // const [pickedPlayers, setPickedPlayers] = useState();
 
-    const forPickplayersList = playersList?.filter(player => player.object.Drużyna === '')
+    const forPickplayersList = playersList?.filter(player => player.Drużyna === '')
 
     const [formState, setFormState] = useState({
         Nazwa: "",
@@ -126,7 +130,7 @@ export const TeamForm = ({ onNewTeam }: TeamFormProps) => {
             <div>
                 <select onChange={pickedPlayerHandleChange} name="Zawodnicy" id="pickedPlayers">
                     <option value="" >Dodaj zawodnika do drużyny</option>
-                    {forPickplayersList?.map(player => <option key={player.id}>{player.object.Imię} {player.object.Nazwisko} id:{ player.id}</option>)}
+                    {forPickplayersList?.map(player => <option key={player.id}>{player.Imię} {player.Nazwisko} id:{ player.id}</option>)}
                 </select>
                 <div>
                     {formState.Zawodnicy.map((player,id) => <p key={id}>{ player}</p>)}
