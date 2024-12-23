@@ -10,18 +10,18 @@ export const  useCreatePlayerMutation = () => {
     const { mutate, error, isPending } = useMutation({
 
         mutationKey: ['players', 'create'],
-        mutationFn: async (pauload: PlayerDto) => {
+        mutationFn: async (payload: PlayerDto) => {
 
-            return apiPost<PlayersType, PlayerDto>(`players`, pauload);
+            return apiPost<PlayersType, PlayerDto>(`players`, payload);
         },
-        onSuccess: (createdPlayer) => {
+        onSuccess: () => {
 
-            queryClient.setQueryData<PlayersType[]>(['players'], oldPlayers => {
+            queryClient.invalidateQueries({
 
-                return [...(oldPlayers || []), createdPlayer]
-            })
+                queryKey: ['players']
+            });
         }
-    })
+    });
 
     return {
         mutate,
