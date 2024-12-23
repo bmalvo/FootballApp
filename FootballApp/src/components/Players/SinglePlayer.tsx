@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 // import { useDeletePlayer } from "./hooks/useDeletePlayer";
-import { PlayersType } from "./types"
-import { EditPlayerForm } from "./forms/EditPlayerForm";
-import { useDeletePlayerMutation } from "./queries/useDeletePlayerMutation";
+import { PlayersType } from "../../types"
+import { EditPlayerForm } from "../../forms/EditPlayerForm";
+import { useDeletePlayerMutation } from "../../queries/useDeletePlayerMutation";
 
 type PlayerType = {
 
@@ -48,7 +48,7 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
     }
 
     return <>
-        <li><p>{player.object.Imię} {player.object.Nazwisko}</p>
+        <li><p>{player.object.Imię} {player.object.Nazwisko} {`-${player.object.Drużyna}` }</p>
             {alert? <p>nie można usunąć zawodnika prypisanego do drużyny</p> : null}
             <button disabled={isPending} onClick={onDelete}>Usuń</button>
             <button disabled={isPending} onClick={onEdit}>Edytuj</button>

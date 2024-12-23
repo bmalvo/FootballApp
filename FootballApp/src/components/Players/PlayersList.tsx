@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { PlayerForm } from "./forms/PlayerForm";
+import { PlayerForm } from "../../forms/PlayerForm";
 // import { usePlayerList } from "./hooks/usePlayerList";
 import { SinglePlayer } from "./SinglePlayer";
 // import { useQuery } from "@tanstack/react-query";
-import { useApi } from "./hooks/useApi";
-import { useGetPlayersListQuery } from "./queries/useGetPlayersListQuery";
-import { useDeletePlayerMutation } from "./queries/useDeletePlayerMutation";
-import { PlayersType } from "./types";
+import { useApi } from "../../hooks/useApi";
+import { useGetPlayersListQuery } from "../../queries/useGetPlayersListQuery";
+import { useDeletePlayerMutation } from "../../queries/useDeletePlayerMutation";
+import { PlayersType } from "../../types";
 
 
 export const PlayersList = () => {

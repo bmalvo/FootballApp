@@ -1,6 +1,6 @@
-import { useDeleteTeam } from "./hooks/useDeleteTeam";
+import { useDeleteTeam } from "../../hooks/useDeleteTeam";
 // import { useGetPlayersListQuery } from "./queries/useGetPlayersListQuery";
-import { TeamType } from "./types"
+import { TeamType } from "../../types"
 
 
 type SingleTeamProps = {

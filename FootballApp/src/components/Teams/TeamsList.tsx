@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react";
-import { useTeamsList } from "./hooks/useTeamsList";
-import { TeamForm } from "./forms/TeamForm";
+import { useTeamsList } from "../../hooks/useTeamsList";
+import { TeamForm } from "../../forms/TeamForm";
 import { SingleTeam } from "./SingleTeam";
-import { TeamType } from "./types";
+import { TeamType } from "../../types";
 
 
 

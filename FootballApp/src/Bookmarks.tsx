@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { PlayersList } from "./PlayersList";
-import { TeamsList } from "./TeamsList";
+import { PlayersList } from "./components/Players/PlayersList";
+import { TeamsList } from "./components/Teams/TeamsList";
 import { Games } from "../../GamesList";
-import { Statistics } from "./Statistics";
+import { Statistics } from "./components/Statistics/Statistics";
 
 export const Bookmarks = () => {
 
