@@ -23,7 +23,7 @@ export const SingleTeam = ({ team, onTeamRemove }: SingleTeamProps) => {
     }
 
     return <>
-        <p>{team.object.Nazwa}</p>
+        <p>{team.Nazwa}</p>
         <button onClick={handleDelete}>Usuń</button>
         <button>Edytuj</button>
     </>

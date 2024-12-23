@@ -6,7 +6,7 @@ export const useGetPlayersListQuery = () => {
 
     const { apiGet} = useApi();
 
-    const { data, error, isLoading } = useQuery({
+    const { data, error, isFetching } = useQuery({
 
         queryKey: ['players'],
         queryFn: async () => {
@@ -19,7 +19,7 @@ export const useGetPlayersListQuery = () => {
 
         data,
         error,
-        isLoading
+        isFetching
     }
 
 }

@@ -30,7 +30,7 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
 
 
     const onDelete = () => {
-        {player.object.Drużyna !== '' ? setAlert(!alert) : setConfirmDelete(!confirmDelete)}
+        {player.Drużyna !== '' ? setAlert(!alert) : setConfirmDelete(!confirmDelete)}
     }
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
     }
 
     return <>
-        <li><p>{player.object.Imię} {player.object.Nazwisko} {`-${player.object.Drużyna}` }</p>
+        <li><p>{player.Imię} {player.Nazwisko} {`-${player.Drużyna}` }</p>
             {alert? <p>nie można usunąć zawodnika prypisanego do drużyny</p> : null}
             <button disabled={isPending} onClick={onDelete}>Usuń</button>
             <button disabled={isPending} onClick={onEdit}>Edytuj</button>

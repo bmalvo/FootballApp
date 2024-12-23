@@ -72,7 +72,7 @@ export const PlayerForm = () => {
             <label htmlFor="team"> Drużyna</label>
             </div>
             
-        <button type="submit">dodaj</button>
+            <button disabled={isPending } type="submit">dodaj</button>
         {error && <p>{error.message}</p>}
         </form>
     </>

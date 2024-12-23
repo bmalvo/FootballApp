@@ -7,12 +7,12 @@ export const  useCreatePlayerMutation = () => {
     const { apiPost } = useApi();
     const queryClient = useQueryClient();
     
-    const { data, mutate, error, isPending } = useMutation({
+    const { mutate, error, isPending } = useMutation({
 
-        mutationKey: ['players'],
-        mutationFn: async (object: PlayersType) => {
+        mutationKey: ['players', 'create'],
+        mutationFn: async (pauload: PlayerDto) => {
 
-            return apiPost<PlayersType, PlayerDto>(`players`, { object });
+            return apiPost<PlayersType, PlayerDto>(`players`, pauload);
         },
         onSuccess: (createdPlayer) => {
 
@@ -24,7 +24,6 @@ export const  useCreatePlayerMutation = () => {
     })
 
     return {
-        data,
         mutate,
         error,
         isPending

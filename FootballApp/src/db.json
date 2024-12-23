@@ -2,132 +2,102 @@
   "players": [
     {
       "id": "1111",
-      "object": {
-        "Imię": "Michał",
-        "Nazwisko": "Gałecki",
-        "Drużyna": "Sparta Żory"
-      }
+      "Imię": "Michał",
+      "Nazwisko": "Gałecki",
+      "Drużyna": "Sparta Żory"
     },
     {
       "id": "2222",
-      "object": {
-        "Imię": "Jakub",
-        "Nazwisko": "Parma",
-        "Drużyna": "Sparta Żory"
-      }
+      "Imię": "Jakub",
+      "Nazwisko": "Parma",
+      "Drużyna": "Sparta Żory"
     },
     {
       "id": "d765",
-      "object": {
-        "Imię": "Marek",
-        "Nazwisko": "Citko",
-        "Drużyna": ""
-      }
+      "Imię": "Marek",
+      "Nazwisko": "Citko",
+      "Drużyna": ""
     },
     {
       "id": "4236",
-      "object": {
-        "Imię": "marcin",
-        "Nazwisko": "galazka",
-        "Drużyna": ""
-      }
+      "Imię": "marcin",
+      "Nazwisko": "galazka",
+      "Drużyna": ""
     },
     {
       "id": "1473",
-      "object": {
-        "Imię": "Kuba",
-        "Nazwisko": "pirko",
-        "Drużyna": ""
-      }
+      "Imię": "Kuba",
+      "Nazwisko": "pirko",
+      "Drużyna": ""
     },
     {
       "id": "bfeb",
-      "object": {
-        "Imię": "marcin",
-        "Nazwisko": "pirko",
-        "Drużyna": ""
-      }
+      "Imię": "marcin",
+      "Nazwisko": "pirko",
+      "Drużyna": ""
     },
     {
-      "object": {
-        "Imię": "Zawodnik",
-        "Nazwisko": "testowy2",
-        "Drużyna": ""
-      },
+      "Imię": "Zawodnik",
+      "Nazwisko": "testowy2",
+      "Drużyna": "",
       "id": "0b32"
     },
     {
       "id": "8db1",
-      "object": {
-        "Imię": "zawodnik3",
-        "Nazwisko": "najman",
-        "Drużyna": ""
-      }
+      "Imię": "zawodnik3",
+      "Nazwisko": "najman",
+      "Drużyna": ""
     },
     {
       "id": "fbf8",
-      "object": {
-        "Imię": "ss",
-        "Nazwisko": "ss",
-        "Drużyna": ""
-      }
+      "Imię": "ss",
+      "Nazwisko": "ss",
+      "Drużyna": ""
     },
     {
       "id": "857f",
-      "object": {
-        "Imię": "nowy",
-        "Nazwisko": "zawodnik",
-        "Drużyna": ""
-      }
+      "Imię": "nowy",
+      "Nazwisko": "zawodnik",
+      "Drużyna": ""
     },
     {
       "id": "6d0a",
-      "object": {
-        "Imię": "dudek",
-        "Nazwisko": "dance",
-        "Drużyna": ""
-      }
+      "Imię": "dudek",
+      "Nazwisko": "dance",
+      "Drużyna": ""
     },
     {
-      "id": "98a1",
-      "object": {
-        "Imię": "mariola",
-        "Nazwisko": "bartoń",
-        "Drużyna": ""
-      }
+      "id": "370d",
+      "Imię": "hugo",
+      "Nazwisko": "kołątaj",
+      "Drużyna": ""
     }
   ],
   "teams": [
     {
       "id": "1",
-      "object": {
-        "Nazwa": "Sparta Żory",
-        "Rok założenia": "2024",
-        "Lokalizacja": "Żory",
-        "Zawodnicy": []
-      }
+      "Nazwa": "Sparta Żory",
+      "Rok założenia": "2024",
+      "Lokalizacja": "Żory",
+      "Zawodnicy": []
     },
     {
       "id": "2",
-      "object": {
-        "Nazwa": "Czapla Kryry",
-        "Rok założenia": "2002",
-        "Lokalizacja": "Kryry",
-        "Zawodnicy": []
-      }
+      "Nazwa": "Czapla Kryry",
+      "Rok założenia": "2002",
+      "Lokalizacja": "Kryry",
+      "Zawodnicy": []
     },
     {
       "id": "0844",
-      "object": {
-        "Nazwa": "Naprzód Tyły",
-        "Rok założenia": "1121",
-        "Lokalizacja": "Parczew Górny",
-        "Zawodnicy": [
-          "Marek Citko id:d765",
-          "marcin galazka id:4236",
-          "Kuba pirko id:1473"
-        ]
-      }
+      "Nazwa": "Naprzód Tyły",
+      "Rok założenia": "1121",
+      "Lokalizacja": "Parczew Górny",
+      "Zawodnicy": [
+        "Marek Citko id:d765",
+        "marcin galazka id:4236",
+        "Kuba pirko id:1473"
+      ]
     }
   ],
   "games": [
