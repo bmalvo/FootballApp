@@ -1,53 +1,21 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { PlayersType } from "../types";
-import { useEditPlayer } from "../hooks/useEditPlayer";
+import { PlayerDto, PlayersType } from "../types";
+// import { useEditPlayer } from "../hooks/useEditPlayer";
+import { useUpdatePlayerMutation } from "../queries/useUpdatePlayerMutation";
 
-type PlayerFormProps = {
+type EditPlayerFormProps = {
 
-    onEdit?: (player: PlayersType) => void;
-    player: PlayersType;
+    handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    formState: PlayerDto;
+    // isPending: boolean;
+    // player: PlayersType;
+
 }
 
-export const EditPlayerForm = ({ onEdit, player }: PlayerFormProps) => {
+export const EditPlayerForm = ({handleSubmit, handleChange, formState}: EditPlayerFormProps) => {
     
-    console.log(player.id)
-
-    const { editPlayer, error, loading, data } = useEditPlayer(player.id); 
-
-    const [formState, setFormState] = useState({
-        Imię: player.object.Imię,
-        Nazwisko: player.object.Nazwisko,
-        Drużyna: player.object.Drużyna
-    });
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-
-        e.preventDefault();
-        editPlayer(formState);
-        setFormState({
-
-            Imię: "",
-            Nazwisko: "",
-            Drużyna: ""
-        });
-    };
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-
-        setFormState(prevState => ({
-
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-    }
-
-    useEffect(() => {
-        if(!data) return
-        onEdit?(data):null
-    },[data])
-
-    if(loading) return <p>Wczytywanie...</p>
-
+   
     return <>
         <form onSubmit={handleSubmit}>
         <div>
@@ -84,7 +52,6 @@ export const EditPlayerForm = ({ onEdit, player }: PlayerFormProps) => {
             </div>
             
         <button type="submit">Edytuj</button>
-        {error && <p>{error}</p>}
         </form>
     </>
 }

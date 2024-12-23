@@ -1,66 +1,27 @@
-import { useEffect, useState } from "react";
-// import { useDeletePlayer } from "./hooks/useDeletePlayer";
+import { useState } from "react";
 import { PlayersType } from "../../types"
-import { EditPlayerForm } from "../../forms/EditPlayerForm";
-import { useDeletePlayerMutation } from "../../queries/useDeletePlayerMutation";
+import { EditPlayer } from "./EditPlayer";
 
 type PlayerType = {
 
     player: PlayersType;
-    onPlayerRemove: (id: string) => void;
 }
 
-export const SinglePlayer = ({ player, onPlayerRemove }: PlayerType) => {
+export const SinglePlayer = ({ player }: PlayerType) => {
     
-    const { isPending, error, mutate: deletePlayer, data } = useDeletePlayerMutation();
-    console.log('data: ', data)
-    const [seeForm, setSeeForm] = useState(false);
-    const [confirmDelete, setConfirmDelete] = useState(false);
-    const [alert, setAlert] = useState(false);
-
-     const confirmDeletion = () => {
-        // Proceed with deletion
-        deletePlayer(player.id);
-        setConfirmDelete(false);
-    };
-
-    const cancelDeletion = () => {
-        setConfirmDelete(false);
-    };
+    const [seeEditForm, setSeeEditForm] = useState(false);
 
 
-    const onDelete = () => {
-        {player.Drużyna !== '' ? setAlert(!alert) : setConfirmDelete(!confirmDelete)}
+    const handleEditToggle = () => {
+
+        setSeeEditForm(prev => !prev)
     }
 
-    useEffect(() => {
-
-        if (!data) return;
-        onPlayerRemove(data.id);
-    }, [])
-    
-    // edit player
-
-    const onEdit = () => {
-
-        setSeeForm(!seeForm);
-
-    }
 
     return <>
         <li><p>{player.Imię} {player.Nazwisko} {`-${player.Drużyna}` }</p>
-            {alert? <p>nie można usunąć zawodnika prypisanego do drużyny</p> : null}
-            <button disabled={isPending} onClick={onDelete}>Usuń</button>
-            <button disabled={isPending} onClick={onEdit}>Edytuj</button>
-            {seeForm ? <EditPlayerForm player={player} /> : null}
-            {confirmDelete ? (
-                <div>
-                    <p>Napewno chcesz usunąć tego gracza?</p>
-                    <button onClick={confirmDeletion}>Tak</button>
-                    <button onClick={cancelDeletion}>Nie</button>
-                </div>
-            ) : null}
-            {error && <p>{ error.message }</p>}
+            {seeEditForm ? <EditPlayer player={player} /> : null}
+            <button onClick={handleEditToggle}>{ seeEditForm? 'Cofnij': 'Edytuj'}</button>
         </li>
     </>
 } 
