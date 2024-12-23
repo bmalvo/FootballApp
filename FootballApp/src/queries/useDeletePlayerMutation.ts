@@ -2,31 +2,30 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useApi } from "../hooks/useApi"
 import { PlayersType } from "../types";
 
-export const  useDeletePlayerMutation = () => {
+
+export const useDeletePlayerMutation = (playerId: string) => {
     
     const { apiDelete } = useApi();
     const queryClient = useQueryClient();
     
-    const {data, mutate, error, isPending } = useMutation({
+    const {  mutate, isPending } = useMutation({
 
-        mutationKey: ['players'],
+        mutationKey: ['players', 'delete', playerId],
         mutationFn: async (playerId: string) => {
 
             return apiDelete<PlayersType>(`players/${playerId}`)
         },
-        onSuccess: (deletedPlayer) => {
+        onSuccess: () => {
 
-            queryClient.setQueryData<PlayersType[]>(['players'], oldPlayers => {
+            queryClient.invalidateQueries({
 
-                return oldPlayers?.filter(player => player.id !== deletedPlayer?.id)
+                queryKey: ['players']
             })
         }
     })
 
     return {
-        data,
         mutate,
-        error,
         isPending
     }
-}
+};

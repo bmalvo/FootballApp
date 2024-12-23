@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PlayersType } from "../../types"
 import { EditPlayer } from "./EditPlayer";
+import { DeletePlayerConfirmation } from "./DeletePlayerConfirmation";
 
 type PlayerType = {
 
@@ -9,19 +10,30 @@ type PlayerType = {
 
 export const SinglePlayer = ({ player }: PlayerType) => {
     
-    const [seeEditForm, setSeeEditForm] = useState(false);
+    const [mode, setMode] = useState<'edit' | 'delete' | 'none'>('none');
 
 
-    const handleEditToggle = () => {
+    const toggleEditMode = () => {
 
-        setSeeEditForm(prev => !prev)
+        setMode(prev => prev ==='edit' ? 'none' :'edit')
+    };
+
+    const toggleDeleteMode = () => {
+
+        setMode(prev => prev ==='delete' ? 'none' :'delete')
     }
 
 
     return <>
         <li><p>{player.Imię} {player.Nazwisko} {`-${player.Drużyna}` }</p>
-            {seeEditForm ? <EditPlayer player={player} /> : null}
-            <button onClick={handleEditToggle}>{ seeEditForm? 'Cofnij': 'Edytuj'}</button>
+            {mode === 'edit' ? <EditPlayer player={player} /> : null}
+            <button onClick={toggleEditMode}>
+                {mode === 'edit' ? 'Cofnij' : 'Edytuj'}
+            </button>
+            {mode === 'delete' ? <DeletePlayerConfirmation player={player} /> : null}
+            <button onClick={toggleDeleteMode}>
+                {mode === 'delete' ? 'Cofnij' : 'Usuń'}
+            </button>
         </li>
     </>
 } 
