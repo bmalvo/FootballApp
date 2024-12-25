@@ -25,7 +25,6 @@ export const SingleTeam = ({ team }: SingleTeamProps) => {
 
 
     return <>
-        <li>
             <p>{team.Nazwa}</p>
             {mode === 'edit' ? 'edycja wkrótce...' : null}
             <button onClick={toggleEditMode}>
@@ -35,6 +34,5 @@ export const SingleTeam = ({ team }: SingleTeamProps) => {
             <button onClick={toggleDeleteMode}>
                 {mode === 'delete' ? 'Cofnij' : 'Usuń'}
             </button>
-        </li>
     </>
 };

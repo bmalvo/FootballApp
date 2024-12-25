@@ -1,6 +1,7 @@
 import { SingleTeam } from "./SingleTeam";
 import { TeamType } from "../../types";
 import { useGetTeamListQuery } from "../../queries/useGetTeamListQuery";
+import { AddTeam } from "./AddTeam";
 
 
 
@@ -22,7 +23,6 @@ export const TeamsList = () => {
                     </li>)
             }
         </ul>
-         {/* <AddTeam /> */}
-
+         <AddTeam />
      </>
 }
