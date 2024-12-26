@@ -1,14 +1,18 @@
+import { useGetGamesQuery } from "../../queries/useGetGamesQuery";
 import { useGetPlayersListQuery } from "../../queries/useGetPlayersListQuery"
+import { useGetTeamListQuery } from "../../queries/useGetTeamListQuery";
 
 export const Statistics = () => {
 
-    const { data, isFetching } = useGetPlayersListQuery();
+    const { data: players, isFetching: playersFetching } = useGetPlayersListQuery();
+    const { data: teams, isFetching: teamsFetching } = useGetTeamListQuery();
+    const { data: games, isPending: gamesPending} = useGetGamesQuery();
     
-    if(isFetching) return <p>Wczytywanie danych...</p>
+    if(playersFetching || teamsFetching || gamesPending) return <p>Wczytywanie danych...</p>
 
     return <>
-        <h3>Liczba zawodników w bazie: {data?.length || 'Brak zawodników'}</h3>
-        <h3>Liczba zarejestrowanych drużyn: "w trakcie zdobywania danych"</h3>
-        <h3>Liczba rozegranych spotkań: 'wynik wkrótce'</h3>
+        <h3>Liczba zawodników w bazie: {players?.length || 'Brak zawodników'}</h3>
+        <h3>Liczba zarejestrowanych drużyn: { teams?.length || 'Brak drużyn'}</h3>
+        <h3>Liczba rozegranych spotkań: { games?.length || 'Brak rozgrywek'}</h3>
     </>
 }
