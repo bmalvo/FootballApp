@@ -11,8 +11,7 @@ export const useDeletePlayerMutation = (playerId: string) => {
     const {  mutate, isPending } = useMutation({
 
         mutationKey: ['players', 'delete', playerId],
-        mutationFn: async (playerId: string) => {
-
+        mutationFn: async () => {
             return apiDelete<PlayersType>(`players/${playerId}`)
         },
         onSuccess: () => {

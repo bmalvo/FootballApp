@@ -15,6 +15,7 @@ export type TeamType = {
     Nazwa: string;
     "Rok założenia": string;
     Lokalizacja: string;
+    Zawodnicy: string[];
 };
 
 export type TeamDto = Omit<TeamType, 'id'>

@@ -77,12 +77,6 @@
       "Nazwisko": "prokop",
       "Drużyna": "",
       "id": "27f0"
-    },
-    {
-      "id": "4c26",
-      "Imię": "adrea",
-      "Nazwisko": "Pirlo",
-      "Drużyna": ""
     }
   ],
   "teams": [
@@ -109,6 +103,49 @@
         "Marek Citko id:d765",
         "marcin galazka id:4236",
         "Kuba pirko id:1473"
+      ]
+    },
+    {
+      "id": "3",
+      "Nazwa": "testowa",
+      "Rok założenia": "1234",
+      "Lokalizacja": "dddd"
+    },
+    {
+      "id": "4",
+      "Nazwa": "testowa",
+      "Rok założenia": "1232",
+      "Lokalizacja": "csdcc",
+      "Zawodnicy": []
+    },
+    {
+      "id": "5",
+      "Nazwa": "testowa",
+      "Rok założenia": "2222",
+      "Lokalizacja": "Kryry",
+      "Zawodnicy": [
+        "Marek Citko id:d765"
+      ]
+    },
+    {
+      "id": "6",
+      "Nazwa": "testowa",
+      "Rok założenia": "2244",
+      "Lokalizacja": "dassdfs",
+      "Zawodnicy": [
+        "Jakub Parma id:2222",
+        "marcin pirko id:bfeb",
+        "Kuba pirko id:1473"
+      ]
+    },
+    {
+      "id": "7",
+      "Nazwa": "sss",
+      "Rok założenia": "2222",
+      "Lokalizacja": "serde",
+      "Zawodnicy": [
+        "Kuba pirko id:1473",
+        "Jakub Parma id:2222"
       ]
     }
   ],

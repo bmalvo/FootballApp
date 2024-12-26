@@ -11,7 +11,7 @@ export const useDeleteTeamMutation = (teamId: string) => {
     const {  mutate, isPending } = useMutation({
 
         mutationKey: ['teams', 'delete', teamId],
-        mutationFn: async (teamId: string) => {
+        mutationFn: async () => {
 
             return apiDelete<TeamType>(`teams/${teamId}`)
         },

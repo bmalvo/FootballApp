@@ -14,6 +14,6 @@ export const DeletePlayerConfirmation = ({ player }: DeletePlayerConfirmationPro
 
     return <>
         <p>Na pewno chcesz usunąć gracza {player.Imię} {player.Nazwisko} z bazy?</p>
-        <button onClick={() => deletePlayer}>Usuń</button>
+        <button onClick={() => deletePlayer()}>Usuń</button>
     </>
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TeamType } from "../../types"
 import { DeleteTeamConfirmation } from "./DeleteTeamConfirmation";
+import { EditTeam } from "./EditTeam";
 
 
 type SingleTeamProps = {
@@ -26,7 +27,7 @@ export const SingleTeam = ({ team }: SingleTeamProps) => {
 
     return <>
             <p>{team.Nazwa}</p>
-            {mode === 'edit' ? 'edycja wkrótce...' : null}
+            {mode === 'edit' ? <EditTeam team={team}/> : null}
             <button onClick={toggleEditMode}>
                 {mode === 'edit' ? 'Cofnij' : 'Edytuj'}
             </button>

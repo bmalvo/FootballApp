@@ -1,32 +1,30 @@
-import { ChangeEvent, FormEvent} from "react";
-import { TeamType } from "../types";
+import { ChangeEvent, FormEvent } from "react";
 import { useGetPlayersListQuery } from "../queries/useGetPlayersListQuery";
+import { TeamDto} from "../types";
 
-type TeamFormProps = {
+type EditTeamProps = {
 
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    formState: TeamType;
-
+    formState: TeamDto;
 }
 
-export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormProps) => {
-
+export const EditTeamForm = ({ handleSubmit, handleChange, formState }: EditTeamProps) => {
+    
     const { data: Players } = useGetPlayersListQuery();
+        
+        const PlayersPickAble = Players?.filter(player => player.Drużyna === '')
+        
+        const pickedPlayerHandleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     
-    const PlayersPickAble = Players?.filter(player => player.Drużyna === '')
-    
-    const pickedPlayerHandleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-
-        console.log(e.target.value)
-        // const target = e.currentTarget as HTMLInputElement;
-        const pickedPlayer: string = e.target.value;
-        formState.Zawodnicy.push(pickedPlayer);
-    }
-
+            console.log(e.target.value)
+            // const target = e.currentTarget as HTMLInputElement;
+            const pickedPlayer: string = e.target.value;
+            formState.Zawodnicy.push(pickedPlayer);
+        }
 
     return <>
-        <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <div>
             <input
                 type="text"
@@ -76,7 +74,7 @@ export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormPro
                 </div>
             </div>
             
-        <button type="submit">Dodaj</button>
+        <button type="submit">Edytuj</button>
         </form>
     </>
 }
