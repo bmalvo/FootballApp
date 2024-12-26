@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useApi } from "../hooks/useApi"
+import { TeamDto, TeamType } from "../types";
 
 export const useUpdateTeamMutation = (teamId: string) => {
 
@@ -9,9 +10,9 @@ export const useUpdateTeamMutation = (teamId: string) => {
     const { mutate, error, isPending} = useMutation({
         
         mutationKey: ['teams', 'update', teamId],
-        mutationFn: async (payload) => {
+        mutationFn: async (payload: TeamDto) => {
             
-            return apiEdit(`teams/${teamId}`, payload)
+            return apiEdit<TeamType, TeamDto>(`teams/${teamId}`, payload)
         },
 
         onSuccess: () => {

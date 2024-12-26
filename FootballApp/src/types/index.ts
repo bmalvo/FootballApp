@@ -19,3 +19,21 @@ export type TeamType = {
 };
 
 export type TeamDto = Omit<TeamType, 'id'>
+
+export type GamesType = {
+
+        id?: string;
+        'Data spotkania': string;
+        "Miejsce spotkania": string;
+        "Czas trwania": string;
+        "Wynik": {
+            gospodarz: number;
+            gość: number;
+            };
+        "Drużyny": {   
+        gospodarz: string;
+            gość: string;
+        };
+}
+
+export type GamesTypeDTO = Omit<GamesType, 'id'>
