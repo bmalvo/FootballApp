@@ -1,6 +1,5 @@
 import { SinglePlayer } from "./SinglePlayer";
 import { useGetPlayersListQuery } from "../../queries/useGetPlayersListQuery";
-// import { useDeletePlayerMutation } from "../../queries/useDeletePlayerMutation";
 import { PlayersType } from "../../types";
 import { AddPlayer } from "./AddPlayer";
 
@@ -8,8 +7,6 @@ import { AddPlayer } from "./AddPlayer";
 export const PlayersList = () => {
 
     const { data, error, isFetching } = useGetPlayersListQuery();
-
-    // const { isPending, mutate: removePlayer } = useDeletePlayerMutation();
 
     if (isFetching) return <p>Wczytywanie zawodników...</p>
     if (error) return <p>Wystąpił problem: {error.message}</p>
