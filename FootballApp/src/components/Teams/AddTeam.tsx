@@ -47,7 +47,9 @@ export const AddTeam = () => {
     
     return <>
         {displayAddTeamForm ? <TeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} /> : null}
-        <button onClick={addTeamFormHandle}>Dodaj drużynę</button>
+        <button onClick={addTeamFormHandle}>
+            {displayAddTeamForm ? 'Anuluj' : 'Dodaj drużynę'}
+        </button>
         {error && <p>{error.message}</p>}
     </>
 };
