@@ -27,13 +27,13 @@ export const Game = ({ game }: GameProps) => {
             <h3>{game.Drużyny.gospodarz} {game.Wynik.gospodarz}:{game.Wynik.gość} {game.Drużyny.gość}</h3>
             <p>{game["Data spotkania"]}-{game["Czas trwania"]}-{game["Miejsce spotkania"]} </p>
             {mode === 'edit' ? <EditGame game={game} /> : null}
-            <button onClick={toggleEditMode}>
+            {mode === 'delete' ? null : <button onClick={toggleEditMode}>
                 {mode === 'edit' ? 'Anuluj' : 'Edytuj'}
-            </button>
+            </button>}
             {mode === 'delete' ? <DeleteGameConfirmation game={game} /> : null}
-            <button onClick={toggleDeleteMode}>
+            {mode === 'edit' ? null : <button onClick={toggleDeleteMode}>
                 {mode === 'delete' ? 'Anuluj' : 'Usuń'}
-            </button>
+            </button>}
         </li>
     </>
 };
