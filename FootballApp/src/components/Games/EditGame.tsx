@@ -10,21 +10,21 @@ type EditGameProps = {
 
 export const EditGame = ({ game }: EditGameProps) => {
 
-    const { mutate: updateGame, error, isPending } = useUpdateGameMutation(game.id !);
+    const { mutate: updateGame, error, isPending } = useUpdateGameMutation(game.id);
     
     const [formState, setFormState] = useState({
     
         
-        'Data spotkania': "",
-        'Miejsce spotkania': "",
-        'Czas trwania': "",
+        'Data spotkania': game["Data spotkania"],
+        'Miejsce spotkania': game["Miejsce spotkania"],
+        'Czas trwania': game["Czas trwania"],
         Wynik: {
-            gospodarz: 0,
-            gość: 0
+            gospodarz: game.Wynik.gospodarz,
+            gość: game.Wynik.gość
         },
         Drużyny: {
-            gospodarz: "",
-            gość: ""
+            gospodarz: game.Drużyny.gospodarz,
+            gość: game.Drużyny.gość
         }
     });
     

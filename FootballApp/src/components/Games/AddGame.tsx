@@ -9,7 +9,6 @@ export const AddGame = () => {
     const { mutate: createGame, error, isPending } = useCreateGamesMutation();
 
     const [formState, setFormState] = useState({
-
     
         'Data spotkania': "",
         'Miejsce spotkania': "",
@@ -49,7 +48,6 @@ export const AddGame = () => {
             }
         });
     };
-
     
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
@@ -86,7 +84,7 @@ export const AddGame = () => {
                 formState={formState} /> : null
         }
         <button onClick={handleAddGame}>
-            {!displayAddGameForm ? 'Dodaj spotkanie': 'Anuluj'}
+            {!displayAddGameForm ? 'Dodaj spotkanie' : 'Anuluj'}
         </button>
     </>
 };
