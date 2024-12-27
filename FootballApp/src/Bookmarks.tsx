@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { PlayersList } from "./components/Players/PlayersList";
 import { TeamsList } from "./components/Teams/TeamsList";
-import { Games } from "../../GamesList";
+import { Games } from "./components/Games/GamesList";
 import { Statistics } from "./components/Statistics/Statistics";
 
 export const Bookmarks = () => {
@@ -39,14 +39,14 @@ export const Bookmarks = () => {
 
     return <>
         <div className='bookmark'>
-        <button onClick={togglePlayers}>Baza graczy</button>
-        <button onClick={toggleTeams}>Baza drużyn</button>
-        <button onClick={toggleGames}>Baza rozgrywek</button>
-        <button onClick={toggleStatistics}>Statystyki</button>
-        {displayPlayers ? <PlayersList /> : null}
-        {displayTeams ? <TeamsList/> : null}
-        {displayGames ? <Games/> : null}
-        {displayStatistics ? <Statistics/> : null}
+            <button onClick={togglePlayers}>Baza graczy</button>
+            <button onClick={toggleTeams}>Baza drużyn</button>
+            <button onClick={toggleGames}>Baza rozgrywek</button>
+            <button onClick={toggleStatistics}>Statystyki</button>
+            {displayPlayers ? <PlayersList /> : null}
+            {displayTeams ? <TeamsList /> : null}
+            {displayGames ? <Games /> : null}
+            {displayStatistics ? <Statistics /> : null}
         </div>
     </>
-}
+};
