@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent} from "react"
 import { PlayerDto } from "../types";
+import { useGetTeamListQuery } from "../queries/useGetTeamListQuery";
 
 
 type EditPlayerFormProps = {
@@ -10,6 +11,14 @@ type EditPlayerFormProps = {
 }
 
 export const EditPlayerForm = ({ handleSubmit, handleChange, formState }: EditPlayerFormProps) => {
+
+    const { data: teams } = useGetTeamListQuery();
+        
+        const handlePickedTeam = (e: ChangeEvent<HTMLSelectElement>) => {
+    
+            const pickedTeam = e.target.value;
+            formState.Drużyna = pickedTeam;
+        }
     
    
     return <>
@@ -37,14 +46,18 @@ export const EditPlayerForm = ({ handleSubmit, handleChange, formState }: EditPl
                 {formState.Nazwisko === '' && <p>Nazwisko jest wymagane!</p>}
             </div>
             <div>
-                <input
+                {/* <input
                     type="text"
                     name="Drużyna"
                     id="team"
                     value={formState.Drużyna}
                     onChange={handleChange}
                 />
-                <label htmlFor="team"> Drużyna</label>
+                <label htmlFor="team"> Drużyna</label> */}
+                <select onChange={handlePickedTeam} name="Drużyna" id="team">
+                    <option value="">Wybierz drużynę</option>
+                    {teams?.map(team => <option key={team.id}>{ team.Nazwa}</option>)}
+                </select>
             </div>
             
             <button type="submit">Edytuj</button>
