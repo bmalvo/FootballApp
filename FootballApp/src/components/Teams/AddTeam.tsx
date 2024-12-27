@@ -5,10 +5,9 @@ import { TeamForm } from "../../forms/TeamForm";
 export const AddTeam = () => {
 
     const [displayAddTeamForm, setDisplayAddTeamForm] = useState(false);
-     const { mutate: createTeam, error, isPending } = useCreateTeamMutation(); 
+    const { mutate: createTeam, error, isPending } = useCreateTeamMutation();
 
     const [formState, setFormState] = useState({
-        id: '',
         Nazwa: '',
         "Rok założenia": '',
         Lokalizacja: '',
@@ -21,15 +20,12 @@ export const AddTeam = () => {
         createTeam(formState);
         setFormState(
             {
-                id: '',
                 Nazwa: '',
                 "Rok założenia": '',
                 Lokalizacja: '',
                 Zawodnicy: []
             }
         )
-
-        console.log(formState);
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,9 +37,9 @@ export const AddTeam = () => {
         }))
     }
 
-    if(isPending) return <p>Wczytywanie...</p>
+    if (isPending) return <p>Wczytywanie...</p>
     
-    const addPlayerFormHandle = () => {
+    const addTeamFormHandle = () => {
 
         setDisplayAddTeamForm(prevState => !prevState);
     }
@@ -51,7 +47,7 @@ export const AddTeam = () => {
     
     return <>
         {displayAddTeamForm ? <TeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} /> : null}
-        <button onClick={addPlayerFormHandle}>Dodaj drużynę</button>
+        <button onClick={addTeamFormHandle}>Dodaj drużynę</button>
         {error && <p>{error.message}</p>}
     </>
 };

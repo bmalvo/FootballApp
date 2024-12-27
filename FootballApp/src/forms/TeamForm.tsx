@@ -1,12 +1,12 @@
 import { ChangeEvent, FormEvent} from "react";
-import { TeamType } from "../types";
+import { TeamDto} from "../types";
 import { useGetPlayersListQuery } from "../queries/useGetPlayersListQuery";
 
 type TeamFormProps = {
 
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    formState: TeamType;
+    formState: TeamDto;
 
 }
 
@@ -18,8 +18,6 @@ export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormPro
     
     const pickedPlayerHandleChange = (e: ChangeEvent<HTMLSelectElement>) => {
 
-        console.log(e.target.value)
-        // const target = e.currentTarget as HTMLInputElement;
         const pickedPlayer: string = e.target.value;
         formState.Zawodnicy.push(pickedPlayer);
     }
@@ -27,46 +25,48 @@ export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormPro
 
     return <>
         <form onSubmit={handleSubmit}>
-        <div>
-            <input
-                type="text"
-                name="Nazwa"
-                id="teamName"
-                value={formState.Nazwa}
-                onChange={handleChange}
-            />
-            <label htmlFor="teamName"> Nazwa zespołu</label>
-            {!formState.Nazwa && <p>Nazwa jest wymagana!</p>}
+            <div>
+                <input
+                    type="text"
+                    name="Nazwa"
+                    id="teamName"
+                    value={formState.Nazwa}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="teamName"> Nazwa zespołu</label>
+                {!formState.Nazwa && <p>Nazwa jest wymagana!</p>}
             </div>
-        <div>
-            <input
-                type="text"
-                name="Rok założenia"
-                id="year"
-                value={formState["Rok założenia"]}
-                pattern="\d{4}"
-                title="Podaj czterocyfrowy rok założenia"
-                onChange={handleChange}
-            />
-            <label htmlFor="year">Rok założenia drużyny</label>
-            {!formState["Rok założenia"] && <p>Rok założenia jest konieczny!</p>}
-        </div>
-        <div>
-            <input
-                type="text"
-                name="Lokalizacja"
-                id="city"
-                value={formState.Lokalizacja}
-                onChange={handleChange}
-                required    
-             />
-            <label htmlFor="city"> Lokalizacja</label>
+            <div>
+                <input
+                    type="text"
+                    name="Rok założenia"
+                    id="year"
+                    value={formState["Rok założenia"]}
+                    pattern="\d{4}"
+                    title="Podaj czterocyfrowy rok założenia"
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="year">Rok założenia drużyny</label>
+                {!formState["Rok założenia"] && <p>Rok założenia jest konieczny!</p>}
+            </div>
+            <div>
+                <input
+                    type="text"
+                    name="Lokalizacja"
+                    id="city"
+                    value={formState.Lokalizacja}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="city"> Lokalizacja</label>
             </div>
             <div>
                 <select onChange={pickedPlayerHandleChange} name="Zawodnicy" id="pickedPlayers">
                     <option value="" >Dodaj zawodnika do drużyny</option>
                     {PlayersPickAble?.map(player =>
-                        <option key={player.id}>{player.Imię} {player.Nazwisko} id:{player.id}
+                        <option key={player.id}>{player.Imię} {player.Nazwisko}
                         </option>)}
                 </select>
                 <div>
@@ -76,7 +76,7 @@ export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormPro
                 </div>
             </div>
             
-        <button type="submit">Dodaj</button>
+            <button type="submit">Dodaj</button>
         </form>
     </>
-}
+};

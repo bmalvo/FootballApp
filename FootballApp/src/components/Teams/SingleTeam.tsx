@@ -26,7 +26,8 @@ export const SingleTeam = ({ team }: SingleTeamProps) => {
 
 
     return <>
-            <p>{team.Nazwa}</p>
+        <h2>{team.Nazwa}</h2>
+        <p>{team.Zawodnicy.join(', ') }</p>
             {mode === 'edit' ? <EditTeam team={team}/> : null}
             <button onClick={toggleEditMode}>
                 {mode === 'edit' ? 'Cofnij' : 'Edytuj'}

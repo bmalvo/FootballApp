@@ -10,7 +10,7 @@ type EditTeamProps = {
 
 export const EditTeam = ({ team }: EditTeamProps) => {
 
-    const {mutate: updateTeam, error, isPending } = useUpdateTeamMutation(team.id);
+    const { mutate: updateTeam, error, isPending } = useUpdateTeamMutation(team.id);
 
     const [formState, setFormState] = useState({
 
@@ -23,72 +23,23 @@ export const EditTeam = ({ team }: EditTeamProps) => {
 
     const handleSubmit = (e: FormEvent) => {
     
-            e.preventDefault();
-            updateTeam(formState);
-        };
+        e.preventDefault();
+        updateTeam(formState);
+    };
     
-        const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     
-            setFormState(prevState => ({
+        setFormState(prevState => ({
     
-                ...prevState,
-                [e.target.name]: e.target.value
-            }))
-        }
+            ...prevState,
+            [e.target.name]: e.target.value
+        }))
+    }
+    
+    if (error) return <p>Wystąpił błąd: {error.message}</p>
+    if (isPending) return <p>Wczytywanie danych...</p>
 
     return <>
-        <EditTeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState}/>
-        {/* <form onSubmit={handleSubmit}>
-        <div>
-            <input
-                type="text"
-                name="Nazwa"
-                id="teamName"
-                value={formState.Nazwa}
-                onChange={handleChange}
-            />
-            <label htmlFor="teamName"> Nazwa zespołu</label>
-            {!formState.Nazwa && <p>Nazwa jest wymagana!</p>}
-            </div>
-        <div>
-            <input
-                type="text"
-                name="Rok założenia"
-                id="year"
-                value={formState["Rok założenia"]}
-                pattern="\d{4}"
-                title="Podaj czterocyfrowy rok założenia"
-                onChange={handleChange}
-            />
-            <label htmlFor="year">Rok założenia drużyny</label>
-            {!formState["Rok założenia"] && <p>Rok założenia jest konieczny!</p>}
-        </div>
-        <div>
-            <input
-                type="text"
-                name="Lokalizacja"
-                id="city"
-                value={formState.Lokalizacja}
-                onChange={handleChange}
-                required    
-             />
-            <label htmlFor="city"> Lokalizacja</label>
-            </div>
-            <div>
-                <select onChange={pickedPlayerHandleChange} name="Zawodnicy" id="pickedPlayers">
-                    <option value="" >Dodaj zawodnika do drużyny</option>
-                    {PlayersPickAble?.map(player =>
-                        <option key={player.id}>{player.Imię} {player.Nazwisko} id:{player.id}
-                        </option>)}
-                </select>
-                <div>
-                    {
-                        formState.Zawodnicy?.map((player, id) => <p key={id}>{player}</p>)
-                    }
-                </div>
-            </div>
-            
-        <button type="submit">Edytuj</button>
-        </form> */}
+        <EditTeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} team={team} />
     </>
-}
+};
