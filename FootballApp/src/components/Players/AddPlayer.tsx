@@ -2,11 +2,11 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { PlayerForm } from "../../forms/PlayerForm";
 import { useCreatePlayerMutation } from "../../queries/useCreatePlayerMutation";
 
+
 export const AddPlayer = () => {
 
     const [displayAddPlayerForm, setDisplayAddPlayerForm] = useState(false);
-     const { mutate: createPlayer, error, isPending } = useCreatePlayerMutation(); 
-
+    const { mutate: createPlayer, error, isPending } = useCreatePlayerMutation();
     const [formState, setFormState] = useState({
         Imię: "",
         Nazwisko: "",
@@ -35,7 +35,7 @@ export const AddPlayer = () => {
         }))
     }
 
-    if(isPending) return <p>Wczytywanie...</p>
+    if (isPending) return <p>Wczytywanie...</p>
     
     const addPlayerFormHandle = () => {
 
@@ -44,8 +44,13 @@ export const AddPlayer = () => {
     
     
     return <>
-        {displayAddPlayerForm ? <PlayerForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} isPending={ isPending} /> : null}
-        <button onClick={addPlayerFormHandle}>Dodaj zawodnika</button>
-        {error && <p>{error.message}</p>}
+        <div>
+
+            {displayAddPlayerForm ? <PlayerForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} isPending={isPending} /> : null}
+            <button onClick={addPlayerFormHandle}>
+                {displayAddPlayerForm? 'Anuluj' : 'Dodaj zawodnika'}
+            </button>
+            {error && <p>{error.message}</p>}
+        </div>
     </>
 };

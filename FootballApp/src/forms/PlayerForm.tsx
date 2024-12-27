@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent} from "react"
 import { PlayerDto } from "../types";
+import { useGetTeamListQuery } from "../queries/useGetTeamListQuery";
 
 type PlayerFormProps = {
 
@@ -12,6 +13,14 @@ type PlayerFormProps = {
 
 export const PlayerForm = ({ handleSubmit, handleChange, formState, isPending }: PlayerFormProps) => {
 
+    const { data: teams } = useGetTeamListQuery();
+    
+    const handlePickedTeam = (e: ChangeEvent<HTMLSelectElement>) => {
+
+        const pickedTeam = e.target.value;
+        formState.Drużyna = pickedTeam;
+    }
+
     return <>
         <form onSubmit={handleSubmit}>
             <div>
@@ -21,6 +30,7 @@ export const PlayerForm = ({ handleSubmit, handleChange, formState, isPending }:
                     id="name"
                     value={formState.Imię}
                     onChange={handleChange}
+                    required
                 />
                 <label htmlFor="name"> Imię</label>
                 {!formState.Imię && <p>Imię jest wymagane!</p>}
@@ -32,19 +42,16 @@ export const PlayerForm = ({ handleSubmit, handleChange, formState, isPending }:
                     id="surname"
                     value={formState.Nazwisko}
                     onChange={handleChange}
+                    required
                 />
                 <label htmlFor="surname"> Nazwisko</label>
                 {!formState.Nazwisko && <p>Nazwisko jest wymagane!</p>}
             </div>
             <div>
-                <input
-                    type="text"
-                    name="Drużyna"
-                    id="team"
-                    value={formState.Drużyna}
-                    onChange={handleChange}
-                />
-                <label htmlFor="team"> Drużyna</label>
+                <select onChange={handlePickedTeam} name="Drużyna" id="team">
+                    <option value="">Wybierz drużynę</option>
+                    {teams?.map(team => <option key={team.id}>{ team.Nazwa}</option>)}
+                </select>
             </div>
             <button disabled={isPending} type="submit">Dodaj</button>
         </form>

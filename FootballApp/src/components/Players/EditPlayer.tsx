@@ -8,10 +8,10 @@ type EditPlayerProps = {
     player: PlayersType;
 }
 
-export const EditPlayer = ({player}: EditPlayerProps) => {
+export const EditPlayer = ({ player }: EditPlayerProps) => {
 
 
-    const { mutate: editPlayer, isPending, error} = useUpdatePlayerMutation(player.id);
+    const { mutate: editPlayer, isPending, error } = useUpdatePlayerMutation(player.id);
 
     const [formState, setFormState] = useState({
         Imię: player.Imię,
@@ -34,7 +34,7 @@ export const EditPlayer = ({player}: EditPlayerProps) => {
         }))
     }
 
-    if(isPending) return <p>Wczytywanie...</p>
+    if (isPending) return <p>Wczytywanie...</p>
     
     
     return <>

@@ -15,25 +15,25 @@ export const SinglePlayer = ({ player }: PlayerType) => {
 
     const toggleEditMode = () => {
 
-        setMode(prev => prev ==='edit' ? 'none' :'edit')
+        setMode(prev => prev === 'edit' ? 'none' : 'edit')
     };
 
     const toggleDeleteMode = () => {
 
-        setMode(prev => prev ==='delete' ? 'none' :'delete')
+        setMode(prev => prev === 'delete' ? 'none' : 'delete')
     }
 
 
     return <>
-        <li><p>{player.Imię} {player.Nazwisko} {`-${player.Drużyna}` }</p>
+        <li><p>{player.Imię} {player.Nazwisko} {player.Drużyna !== '' ? player.Drużyna : null}</p>
             {mode === 'edit' ? <EditPlayer player={player} /> : null}
-            <button onClick={toggleEditMode}>
+            {mode === 'delete' ? null : <button onClick={toggleEditMode}>
                 {mode === 'edit' ? 'Cofnij' : 'Edytuj'}
-            </button>
+            </button>}
             {mode === 'delete' ? <DeletePlayerConfirmation player={player} /> : null}
-            <button onClick={toggleDeleteMode}>
+            {mode === 'edit' ? null : <button onClick={toggleDeleteMode}>
                 {mode === 'delete' ? 'Cofnij' : 'Usuń'}
-            </button>
+            </button>}
         </li>
     </>
-} 
+};
