@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { PlayerForm } from "../../forms/PlayerForm";
 import { useCreatePlayerMutation } from "../../queries/useCreatePlayerMutation";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 
 
 export const AddPlayer = () => {
@@ -47,9 +48,9 @@ export const AddPlayer = () => {
         <div>
 
             {displayAddPlayerForm ? <PlayerForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} isPending={isPending} /> : null}
-            <button onClick={addPlayerFormHandle}>
+            <StyledButton onClick={addPlayerFormHandle}>
                 {displayAddPlayerForm? 'Anuluj' : 'Dodaj zawodnika'}
-            </button>
+            </StyledButton>
             {error && <p>{error.message}</p>}
         </div>
     </>

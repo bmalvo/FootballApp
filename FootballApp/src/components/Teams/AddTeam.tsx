@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useCreateTeamMutation } from "../../queries/useCreateTeamMutation";
 import { TeamForm } from "../../forms/TeamForm";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 
 export const AddTeam = () => {
 
@@ -47,9 +48,9 @@ export const AddTeam = () => {
     
     return <>
         {displayAddTeamForm ? <TeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} /> : null}
-        <button onClick={addTeamFormHandle}>
+        <StyledButton onClick={addTeamFormHandle}>
             {displayAddTeamForm ? 'Anuluj' : 'Dodaj drużynę'}
-        </button>
+        </StyledButton>
         {error && <p>{error.message}</p>}
     </>
 };

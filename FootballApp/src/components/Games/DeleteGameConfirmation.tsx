@@ -1,4 +1,5 @@
 import { useDeleteGameMutation } from "../../queries/useDeleteGameMutation";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 import { GamesType } from "../../types";
 
 type DeleteGameConfirmationProps = {
@@ -14,6 +15,6 @@ export const DeleteGameConfirmation = ({game}: DeleteGameConfirmationProps) => {
     
         return <>
             <p>Na pewno chcesz usunąć rozgrywkę { game.Drużyny.gospodarz}-{game.Drużyny.gość} z bazy danych?</p>
-            <button onClick={() => deleteGame()}>Usuń</button>
+            <StyledButton onClick={() => deleteGame()}>Usuń</StyledButton>
         </>
 }

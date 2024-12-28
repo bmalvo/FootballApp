@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent } from "react"
 import { GamesTypeDTO } from "../types"
 import { useGetTeamListQuery } from "../queries/useGetTeamListQuery";
+import { StyledButton } from "../StyledWrappers/StyledWrapper";
 
 type GameFormProps = {
 
@@ -13,10 +14,10 @@ export const GameForm = ({ handleSubmit, handleChange, formState }: GameFormProp
 
     const { data: teams } = useGetTeamListQuery();
         
-        const handlePickedTeamHome = (e: ChangeEvent<HTMLSelectElement>) => {
+    const handlePickedTeamHome = (e: ChangeEvent<HTMLSelectElement>) => {
     
-            const pickedTeam = e.target.value;
-            formState.Drużyny.gospodarz = pickedTeam;
+        const pickedTeam = e.target.value;
+        formState.Drużyny.gospodarz = pickedTeam;
     }
     
     const handlePickedTeamGuest = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -28,7 +29,7 @@ export const GameForm = ({ handleSubmit, handleChange, formState }: GameFormProp
     return <>
         <form onSubmit={handleSubmit}>
             <div>
-            <label htmlFor="date">Data spotkania</label>
+                <label htmlFor="date">Data spotkania</label>
                 <input
                     type="date"
                     id="date"
@@ -38,7 +39,7 @@ export const GameForm = ({ handleSubmit, handleChange, formState }: GameFormProp
                 />
             </div>
             <div>
-            <label htmlFor="place">Miejsce spotkania</label>
+                <label htmlFor="place">Miejsce spotkania</label>
                 <input
                     type="text"
                     id="place"
@@ -47,7 +48,7 @@ export const GameForm = ({ handleSubmit, handleChange, formState }: GameFormProp
                     value={formState["Miejsce spotkania"]} />
             </div>
             <div>
-            <label htmlFor="time">Czas trwania spotkania</label>
+                <label htmlFor="time">Czas trwania spotkania</label>
                 <input
                     type="text"
                     id="time"
@@ -56,48 +57,34 @@ export const GameForm = ({ handleSubmit, handleChange, formState }: GameFormProp
                     value={formState["Czas trwania"]} />
             </div>
             <div>
-
-            {/* <label htmlFor="home">Drużyna gospodarzy:</label>
-            <input
-                type="text"
-                id="home"
-                name="Drużyny.gospodarz"
-                onChange={handleChange}
-                value={formState.Drużyny.gospodarz} /> */}
                 <label htmlFor="home">Drużyna gospodarzy:</label>
-                <select  onChange={handlePickedTeamHome} name="Drużyny" id="home">
+                <select onChange={handlePickedTeamHome} name="Drużyny" id="home">
                     <option value="">Wybierz drużynę</option>
-                    {teams?.map(team => <option key={team.id}>{ team.Nazwa}</option>)}
+                    {teams?.map(team => <option key={team.id}>{team.Nazwa}</option>)}
                 </select>
             </div>
             <label htmlFor="guest">Drużyna gości</label>
-            {/* <input
-                type="text"
-                id="guest"
-                name="Drużyny.gość"
-                onChange={handleChange}
-                value={formState.Drużyny.gość} /> */}
             <label htmlFor="guest">Drużyna gości:</label>
-                <select  onChange={handlePickedTeamGuest} name="Drużyny" id="guest">
-                    <option value="">Wybierz drużynę</option>
-                    {teams?.map(team => <option key={team.id}>{ team.Nazwa}</option>)}
-                </select>
+            <select onChange={handlePickedTeamGuest} name="Drużyny" id="guest">
+                <option value="">Wybierz drużynę</option>
+                {teams?.map(team => <option key={team.id}>{team.Nazwa}</option>)}
+            </select>
             <div>
-            <label htmlFor="goals-home">Bramki gospodarzy: </label>
+                <label htmlFor="goals-home">Bramki gospodarzy: </label>
                 <input
                     type="number"
                     id="goals-home"
                     name="Wynik.gospodarz"
                     onChange={handleChange}
                     value={formState.Wynik.gospodarz} />
-            <label htmlFor="goals-guest">Bramki gości:</label>
+                <label htmlFor="goals-guest">Bramki gości:</label>
                 <input
                     type="number"
                     id="goals-guest"
                     name="Wynik.gość"
                     onChange={handleChange} value={formState.Wynik.gość} />
             </div>
-            <button type="submit">Zatwierdź</button>
+            <StyledButton type="submit">Zatwierdź</StyledButton>
         </form>
     </>
-}
+};

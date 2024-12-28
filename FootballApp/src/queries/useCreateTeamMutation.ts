@@ -10,7 +10,7 @@ export const useCreateTeamMutation = () => {
     const { mutate, error, isPending } = useMutation({
         
         mutationKey: ['teams', 'create'],
-        mutationFn: async( payload: TeamDto) => {
+        mutationFn: async (payload: TeamDto) => {
 
             return apiPost<TeamType, TeamDto>('teams', payload);
         },
@@ -30,4 +30,4 @@ export const useCreateTeamMutation = () => {
         error,
         isPending
     }
-}
+};

@@ -9,7 +9,7 @@ export const useGetTeamListQuery = () => {
     const { data, error, isFetching } = useQuery({
 
         queryKey: ['teams'],
-        queryFn: async() => {
+        queryFn: async () => {
 
             return apiGet<TeamType[]>('teams')
         }
@@ -21,4 +21,4 @@ export const useGetTeamListQuery = () => {
         error,
         isFetching
     }
-}
+};

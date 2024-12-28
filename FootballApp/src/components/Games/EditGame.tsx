@@ -65,8 +65,8 @@ export const EditGame = ({ game }: EditGameProps) => {
             'Miejsce spotkania': "",
             'Czas trwania': "",
             Wynik: {
-                gospodarz: 0,
-                gość: 0
+                gospodarz: '',
+                gość: ''
             },
             Drużyny: {
                 gospodarz: "",

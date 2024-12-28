@@ -67,15 +67,6 @@
       "Rok założenia": "1964",
       "Lokalizacja": "Rybnik",
       "Zawodnicy": []
-    },
-    {
-      "id": "f435",
-      "Nazwa": "testowa",
-      "Rok założenia": "2244",
-      "Lokalizacja": "serde",
-      "Zawodnicy": [
-        "Marek Citko"
-      ]
     }
   ],
   "games": [

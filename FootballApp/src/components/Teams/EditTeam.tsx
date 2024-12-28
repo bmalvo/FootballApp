@@ -40,6 +40,6 @@ export const EditTeam = ({ team }: EditTeamProps) => {
     if (isPending) return <p>Wczytywanie danych...</p>
 
     return <>
-        <EditTeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} team={team} />
+        <EditTeamForm handleSubmit={handleSubmit} handleChange={handleChange} formState={formState} />
     </>
 };

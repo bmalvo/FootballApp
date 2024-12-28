@@ -7,7 +7,7 @@ export const useUpdateTeamMutation = (teamId: string) => {
     const { apiEdit } = useApi();
     const queryClient = useQueryClient();
 
-    const { mutate, error, isPending} = useMutation({
+    const { mutate, error, isPending } = useMutation({
         
         mutationKey: ['teams', 'update', teamId],
         mutationFn: async (payload: TeamDto) => {
@@ -30,4 +30,4 @@ export const useUpdateTeamMutation = (teamId: string) => {
         error,
         isPending
     }
-}
+};

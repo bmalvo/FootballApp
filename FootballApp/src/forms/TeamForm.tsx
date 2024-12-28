@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent} from "react";
 import { TeamDto} from "../types";
 import { useGetPlayersListQuery } from "../queries/useGetPlayersListQuery";
+import { StyledButton } from "../StyledWrappers/StyledWrapper";
 
 type TeamFormProps = {
 
@@ -76,7 +77,7 @@ export const TeamForm = ({ handleSubmit, handleChange, formState, }: TeamFormPro
                 </div>
             </div>
             
-            <button type="submit">Dodaj</button>
+            <StyledButton type="submit">Dodaj</StyledButton>
         </form>
     </>
 };

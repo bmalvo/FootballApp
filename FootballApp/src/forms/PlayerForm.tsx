@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent} from "react"
 import { PlayerDto } from "../types";
 import { useGetTeamListQuery } from "../queries/useGetTeamListQuery";
+import { StyledButton } from "../StyledWrappers/StyledWrapper";
 
 type PlayerFormProps = {
 
@@ -53,7 +54,7 @@ export const PlayerForm = ({ handleSubmit, handleChange, formState, isPending }:
                     {teams?.map(team => <option key={team.id}>{ team.Nazwa}</option>)}
                 </select>
             </div>
-            <button disabled={isPending} type="submit">Dodaj</button>
+            <StyledButton disabled={isPending} type="submit">Dodaj</StyledButton>
         </form>
     </>
 };

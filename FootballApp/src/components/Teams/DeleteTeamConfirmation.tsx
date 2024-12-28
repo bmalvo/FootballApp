@@ -1,4 +1,5 @@
 import { useDeleteTeamMutation } from "../../queries/useDeleteTeamMutation";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 import { TeamType } from "../../types";
 
 type DeletePlayerConfirmationProps = {
@@ -16,6 +17,6 @@ export const DeleteTeamConfirmation = ({ team }: DeletePlayerConfirmationProps) 
 
     return <>
         <p>Czy na pewno chcesz usunąć drużynę {team.Nazwa} ?</p>
-        <button onClick={() => deleteTeam()}>Usuń</button>
+        <StyledButton onClick={() => deleteTeam()}>Usuń</StyledButton>
     </>
 };

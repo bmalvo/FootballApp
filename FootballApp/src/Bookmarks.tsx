@@ -3,6 +3,7 @@ import { PlayersList } from "./components/Players/PlayersList";
 import { TeamsList } from "./components/Teams/TeamsList";
 import { Games } from "./components/Games/GamesList";
 import { Statistics } from "./components/Statistics/Statistics";
+import { StyledButton } from "./StyledWrappers/StyledWrapper";
 
 export const Bookmarks = () => {
 
@@ -39,10 +40,10 @@ export const Bookmarks = () => {
 
     return <>
         <div className='bookmark'>
-            <button onClick={togglePlayers}>Baza graczy</button>
-            <button onClick={toggleTeams}>Baza drużyn</button>
-            <button onClick={toggleGames}>Baza rozgrywek</button>
-            <button onClick={toggleStatistics}>Statystyki</button>
+            <StyledButton onClick={togglePlayers}>Baza graczy</StyledButton>
+            <StyledButton onClick={toggleTeams}>Baza drużyn</StyledButton>
+            <StyledButton onClick={toggleGames}>Baza rozgrywek</StyledButton>
+            <StyledButton onClick={toggleStatistics}>Statystyki</StyledButton>
             {displayPlayers ? <PlayersList /> : null}
             {displayTeams ? <TeamsList /> : null}
             {displayGames ? <Games /> : null}

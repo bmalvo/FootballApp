@@ -10,10 +10,10 @@ export const DeletePlayerConfirmation = ({ player }: DeletePlayerConfirmationPro
 
     const { mutate: deletePlayer, isPending } = useDeletePlayerMutation(player.id);
     
-    if(isPending) return <p>Wczytywanie danych...</p>
+    if (isPending) return <p>Wczytywanie danych...</p>
 
     return <>
         <p>Na pewno chcesz usunąć gracza {player.Imię} {player.Nazwisko} z bazy?</p>
         <button onClick={() => deletePlayer()}>Usuń</button>
     </>
-}
+};

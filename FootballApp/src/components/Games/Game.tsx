@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GamesType } from "../../types"
 import { EditGame } from "./EditGame";
 import { DeleteGameConfirmation } from "./DeleteGameConfirmation";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 
 type GameProps = {
 
@@ -25,15 +26,17 @@ export const Game = ({ game }: GameProps) => {
     return <>
         <li>
             <h3>{game.Drużyny.gospodarz} {game.Wynik.gospodarz}:{game.Wynik.gość} {game.Drużyny.gość}</h3>
-            <p>{game["Data spotkania"]}-{game["Czas trwania"]}-{game["Miejsce spotkania"]} </p>
+            <p>Data: {game["Data spotkania"]}</p>
+            <p>Czas meczu: {game["Czas trwania"]}</p>
+            <p>Miejsce spotkania: {game["Miejsce spotkania"]}</p>
             {mode === 'edit' ? <EditGame game={game} /> : null}
-            {mode === 'delete' ? null : <button onClick={toggleEditMode}>
+            {mode === 'delete' ? null : <StyledButton onClick={toggleEditMode}>
                 {mode === 'edit' ? 'Anuluj' : 'Edytuj'}
-            </button>}
+            </StyledButton>}
             {mode === 'delete' ? <DeleteGameConfirmation game={game} /> : null}
-            {mode === 'edit' ? null : <button onClick={toggleDeleteMode}>
+            {mode === 'edit' ? null : <StyledButton onClick={toggleDeleteMode}>
                 {mode === 'delete' ? 'Anuluj' : 'Usuń'}
-            </button>}
+            </StyledButton>}
         </li>
     </>
 };

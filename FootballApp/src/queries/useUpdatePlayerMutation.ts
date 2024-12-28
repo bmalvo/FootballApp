@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useApi } from "../hooks/useApi"
 import { PlayerDto, PlayersType } from "../types";
 
-export const  useUpdatePlayerMutation = (playerId: string) => {
+export const useUpdatePlayerMutation = (playerId: string) => {
     
     const { apiEdit } = useApi();
     const queryClient = useQueryClient();
@@ -28,4 +28,4 @@ export const  useUpdatePlayerMutation = (playerId: string) => {
         error,
         isPending
     }
-}
+};

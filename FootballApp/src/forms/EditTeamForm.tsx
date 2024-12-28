@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent} from "react";
 import { useGetPlayersListQuery } from "../queries/useGetPlayersListQuery";
 import { TeamDto} from "../types";
+import { StyledButton } from "../StyledWrappers/StyledWrapper";
 
 
 type EditTeamProps = {
@@ -75,7 +76,7 @@ export const EditTeamForm = ({ handleSubmit, handleChange, formState }: EditTeam
                 </div>
             </div>
             
-            <button type="submit">Edytuj</button>
+            <StyledButton type="submit">Edytuj</StyledButton>
         </form>
     </>
 };

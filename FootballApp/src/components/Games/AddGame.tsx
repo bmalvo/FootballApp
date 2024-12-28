@@ -1,6 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useCreateGamesMutation } from "../../queries/useCreateGamesMutation";
 import { GameForm } from "../../forms/GameForm";
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
+import { GamesTypeDTO } from "../../types";
 
 export const AddGame = () => {
 
@@ -8,14 +10,14 @@ export const AddGame = () => {
 
     const { mutate: createGame, error, isPending } = useCreateGamesMutation();
 
-    const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState<GamesTypeDTO>({
     
         'Data spotkania': "",
         'Miejsce spotkania': "",
         'Czas trwania': "",
         Wynik: {
-            gospodarz: 0,
-            gość: 0
+            gospodarz: '',
+            gość: ''
         },
         Drużyny: {
             gospodarz: "",
@@ -59,8 +61,8 @@ export const AddGame = () => {
             'Miejsce spotkania': "",
             'Czas trwania': "",
             Wynik: {
-                gospodarz: 0,
-                gość: 0
+                gospodarz: '',
+                gość: ''
             },
             Drużyny: {
                 gospodarz: "",
@@ -83,8 +85,8 @@ export const AddGame = () => {
                 handleSubmit={handleSubmit}
                 formState={formState} /> : null
         }
-        <button onClick={handleAddGame}>
+        <StyledButton onClick={handleAddGame}>
             {!displayAddGameForm ? 'Dodaj spotkanie' : 'Anuluj'}
-        </button>
+        </StyledButton>
     </>
 };

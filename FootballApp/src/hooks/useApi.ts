@@ -10,7 +10,7 @@ export const useApi = () => {
         const commonData = {
             method,
             headers: {
-                 'Content-Type': 'aplication/json',
+                'Content-Type': 'aplication/json',
 
             }
         }
@@ -33,7 +33,7 @@ export const useApi = () => {
 
 
         } catch (e) {
-            throw new Error('Error ocurred')  
+            throw new Error('Error ocurred')
         } finally {
         }
     }
@@ -57,4 +57,4 @@ export const useApi = () => {
     return {
         apiGet, apiDelete, apiPost, apiEdit
     }
-}
+};

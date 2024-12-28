@@ -1,26 +1,11 @@
 import { useGetGamesQuery } from "../../queries/useGetGamesQuery";
 
-// interface GameType {
-//   "Data spotkania": string;
-//   "Miejsce spotkania": string;
-//   "Czas trwania": string;
-//   "Wynik": {
-//     "gospodarz": string;
-//     "gość": string;
-//   };
-//   "Drużyny": {
-//     "gospodarz": string;
-//     "gość": string;
-//   };
-//   "id": string;
-// }
-
 
 export const TeamRanking = () => {
    const { data: games, isPending: gamesPending } = useGetGamesQuery();
 
   if (gamesPending || !games) {
-    return <div>Wczytywanie danych...</div>; // Show a loading state while fetching
+    return <div>Wczytywanie danych...</div>; 
   }
 
   // Calculate team goals
@@ -44,11 +29,10 @@ export const TeamRanking = () => {
 
   return (
     <div>
-      <h2>Top 3 Teams</h2>
       <ul>
         {sortedTeams.map(([teamName, goals], index) => (
           <li key={index}>
-            {teamName}: {goals} goals
+            <strong>{ index+1}</strong> -  {teamName}: {goals} goals
           </li>
         ))}
       </ul>
