@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../GamesList.tsx"]
+  "include": ["src", "src/components/Games/GamesList.tsx"]
 }
