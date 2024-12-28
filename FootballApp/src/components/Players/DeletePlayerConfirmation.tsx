@@ -1,4 +1,5 @@
 import { useDeletePlayerMutation } from "../../queries/useDeletePlayerMutation"
+import { StyledButton } from "../../StyledWrappers/StyledWrapper";
 import { PlayersType } from "../../types"
 
 type DeletePlayerConfirmationProps = {
@@ -14,6 +15,6 @@ export const DeletePlayerConfirmation = ({ player }: DeletePlayerConfirmationPro
 
     return <>
         <p>Na pewno chcesz usunąć gracza {player.Imię} {player.Nazwisko} z bazy?</p>
-        <button onClick={() => deletePlayer()}>Usuń</button>
+        <StyledButton onClick={() => deletePlayer()}>Usuń</StyledButton>
     </>
 };

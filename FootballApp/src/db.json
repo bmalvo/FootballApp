@@ -19,27 +19,39 @@
       "Drużyna": "ROW Rybnik"
     },
     {
-      "id": "8cde",
-      "Imię": "Kuba",
-      "Nazwisko": "test",
-      "Drużyna": "Sparta Żory"
+      "id": "344a",
+      "Imię": "Wojciech",
+      "Nazwisko": "Orzeł",
+      "Drużyna": ""
     },
     {
-      "id": "6d59",
-      "Imię": "marcin",
-      "Nazwisko": "pieczka",
-      "Drużyna": "Czapla Kryry"
+      "Imię": "Krzysztof ",
+      "Nazwisko": "Poręba",
+      "Drużyna": "Czapla Kryry",
+      "id": "001f"
     },
     {
-      "Imię": "Kamil",
-      "Nazwisko": "Romanowski",
+      "Imię": "Marek ",
+      "Nazwisko": "Kurtok",
+      "Drużyna": "Czapla Kryry",
+      "id": "31bc"
+    },
+    {
+      "id": "9c71",
+      "Imię": "Szymon",
+      "Nazwisko": "Przybyłka",
+      "Drużyna": ""
+    },
+    {
+      "Imię": "Kacper",
+      "Nazwisko": "Tkocz",
       "Drużyna": "ROW Rybnik",
-      "id": "fec3"
+      "id": "a1e2"
     },
     {
-      "id": "2d28",
-      "Imię": "Marek",
-      "Nazwisko": "Citko",
+      "id": "1931",
+      "Imię": "Jakub",
+      "Nazwisko": "Jamróg",
       "Drużyna": ""
     }
   ],
@@ -50,8 +62,8 @@
       "Rok założenia": "2024",
       "Lokalizacja": "Żory",
       "Zawodnicy": [
-        "Marek Citko",
-        "Michał Gałecki"
+        "Michał Gałecki",
+        "Jakub Parma"
       ]
     },
     {
@@ -59,14 +71,20 @@
       "Nazwa": "Czapla Kryry",
       "Rok założenia": "2002",
       "Lokalizacja": "Kryry",
-      "Zawodnicy": []
+      "Zawodnicy": [
+        "Krzysztof Poręba",
+        "Marek Kurtok"
+      ]
     },
     {
       "id": "0844",
       "Nazwa": "ROW Rybnik",
       "Rok założenia": "1964",
       "Lokalizacja": "Rybnik",
-      "Zawodnicy": []
+      "Zawodnicy": [
+        "Mateusz Rżeźnicki",
+        "Kacper Tkocz"
+      ]
     }
   ],
   "games": [
@@ -79,27 +97,26 @@
         "gość": "4"
       },
       "Drużyny": {
-        "gospodarz": "Czapla",
-        "gość": "Piotrków"
+        "gospodarz": "Czapla Kryry",
+        "gość": "Sparta Żory"
       },
       "id": "1"
     },
     {
       "Data spotkania": "2024-08-25",
       "Miejsce spotkania": "Jasterzębie",
-      "Czas trwania": "90",
+      "Czas trwania": "90 minut",
       "Wynik": {
         "gospodarz": "1",
         "gość": "3"
       },
       "Drużyny": {
-        "gospodarz": "Czapla",
-        "gość": "Piotrków"
+        "gospodarz": "ROW Rybnik",
+        "gość": "Czapla Kryry"
       },
       "id": "4"
     },
     {
-      "id": "a62f",
       "Data spotkania": "2024-12-07",
       "Miejsce spotkania": "Żory",
       "Czas trwania": "90",
@@ -108,12 +125,12 @@
         "gość": "3"
       },
       "Drużyny": {
-        "gospodarz": "trampki",
-        "gość": "kalosze"
-      }
+        "gospodarz": "Czapla Kryry",
+        "gość": "Sparta Żory"
+      },
+      "id": "a62f"
     },
     {
-      "id": "de00",
       "Data spotkania": "2024-12-11",
       "Miejsce spotkania": "Żory",
       "Czas trwania": "90 minut",
@@ -122,9 +139,10 @@
         "gość": "2"
       },
       "Drużyny": {
-        "gospodarz": "Sparta Żory",
-        "gość": "Czapla Kryry"
-      }
+        "gospodarz": "ROW Rybnik",
+        "gość": "Sparta Żory"
+      },
+      "id": "de00"
     }
   ]
 }
